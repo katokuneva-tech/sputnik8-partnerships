@@ -982,7 +982,112 @@ body {
   .no-icon { min-width: auto; padding: 10px; }
   .no-badges { padding: 0 20px 12px; }
   .no-mechs { grid-template-columns: 1fr; }
+  .comp-stats { grid-template-columns: 1fr 1fr; }
+  .comp-conclusion-grid { grid-template-columns: 1fr; }
 }
+
+/* ===== COMPETITOR ANALYSIS ===== */
+.comp-card {
+  border: 1px solid #eee;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 32px;
+  background: #fff;
+  transition: box-shadow .25s;
+}
+.comp-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,.06); }
+.comp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 700;
+}
+.comp-header.tripster { background: #FF6B35; }
+.comp-header.gyg { background: #FF5533; }
+.comp-header.viator { background: #00AA6C; }
+.comp-header .comp-geo {
+  font-size: 13px;
+  font-weight: 400;
+  background: rgba(255,255,255,.2);
+  padding: 4px 12px;
+  border-radius: 3px;
+}
+.comp-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: #f0f0f0;
+  border-bottom: 1px solid #eee;
+}
+.comp-stat {
+  background: #f8f9fb;
+  padding: 14px 16px;
+  text-align: center;
+}
+.comp-stat-val { font-size: 18px; font-weight: 700; color: #231F20; }
+.comp-stat-label { font-size: 11px; color: #999; margin-top: 2px; }
+.comp-table-wrap { overflow-x: auto; }
+.comp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.comp-table th {
+  background: #f8f9fb;
+  padding: 10px 16px;
+  text-align: left;
+  font-weight: 700;
+  color: #444;
+  border-bottom: 2px solid #eee;
+  white-space: nowrap;
+}
+.comp-table td {
+  padding: 10px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: top;
+}
+.comp-table tr:last-child td { border-bottom: none; }
+.comp-table tr:hover td { background: #fafbfd; }
+.comp-takeaway {
+  padding: 16px 24px;
+  background: #f8f9fb;
+  border-top: 1px solid #eee;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.comp-takeaway strong { color: #2762F4; }
+.comp-conclusion {
+  border: 2px solid #2762F4;
+  border-radius: 6px;
+  padding: 28px 28px 20px;
+  margin-top: 12px;
+  margin-bottom: 24px;
+}
+.comp-conclusion h3 { font-size: 20px; margin-bottom: 16px; color: #231F20; }
+.comp-conclusion-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.comp-conclusion-item {
+  background: #f8f9fb;
+  border-radius: 6px;
+  padding: 16px;
+}
+.comp-conclusion-item strong { display: block; margin-bottom: 4px; color: #2762F4; font-size: 14px; }
+.comp-conclusion-item span { font-size: 13px; color: #555; }
+.comp-warn {
+  background: #fff8f0;
+  border-left: 3px solid #FF6B35;
+  padding: 14px 18px;
+  border-radius: 0 6px 6px 0;
+  font-size: 13px;
+}
+.comp-warn strong { color: #FF6B35; }
 </style>
 </head>
 <body>
@@ -1012,6 +1117,7 @@ body {
       <a href="#positioning">Позиционирование</a>
       <a href="#pitches">Питчи</a>
       <a href="#nonobvious">Неочевидные</a>
+      <a href="#competitors">Конкуренты</a>
     </nav>
   </div>
 </header>
@@ -2831,6 +2937,138 @@ body {
     </div>
 
     <div class="disclaimer">Данные получены из открытых источников (40+ источников, март 2026). Цифры роста и аудитории могут изменяться. Ссылки на источники указаны в каждой карточке.</div>
+    </div>
+  </section>
+
+  <!-- COMPETITOR PARTNERSHIPS -->
+  <section class="section" id="competitors">
+    <div class="container">
+    <h2 class="section-title">Партнёрства конкурентов</h2>
+    <p class="section-subtitle">Tripster, GetYourGuide, Viator — кто их партнёры и как именно они приводят клиентов</p>
+
+    <!-- TRIPSTER -->
+    <div class="comp-card">
+      <div class="comp-header tripster">Tripster <span class="comp-geo">Россия</span></div>
+      <div class="comp-stats">
+        <div class="comp-stat"><div class="comp-stat-val">10%</div><div class="comp-stat-label">Комиссия аффилиатам</div></div>
+        <div class="comp-stat"><div class="comp-stat-val">90 дней</div><div class="comp-stat-label">Cookie</div></div>
+        <div class="comp-stat"><div class="comp-stat-val">~7 600 &#8381;</div><div class="comp-stat-label">Средний чек</div></div>
+        <div class="comp-stat"><div class="comp-stat-val">16%</div><div class="comp-stat-label">Комиссия с гидов</div></div>
+      </div>
+      <div class="comp-table-wrap">
+        <table class="comp-table">
+          <thead><tr><th>Партнёр</th><th>Механика привлечения</th><th>Масштаб</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Т-Банк (Тинькофф)</strong></td><td>White-label витрина в приложении банка + 5% кэшбэк за бронирование. Пользователь бронирует прямо в приложении банка</td><td>Десятки млн пользователей</td></tr>
+            <tr><td><strong>S7 Priority</strong></td><td>Начисление 2 миль за каждые 20 &#8381; за экскурсии. Интеграция в программу лояльности авиакомпании</td><td>~10М участников</td></tr>
+            <tr><td><strong>Победа</strong></td><td>White-label субдомен pobeda.tripster.pro — экскурсии под брендом авиакомпании</td><td>Крупнейший лоукостер РФ</td></tr>
+            <tr><td><strong>Aviasales</strong></td><td>Backend API-интеграция через Go Travel Un Limited. Экскурсии в разделе «Гиды»</td><td>~20М MAU</td></tr>
+            <tr><td><strong>BestBenefits</strong></td><td>Корпоративный кафетерий льгот — скидка 8% на экскурсии для сотрудников компаний</td><td>B2B-канал</td></tr>
+            <tr><td><strong>Travelpayouts</strong></td><td>Партнёрская сеть: 270К+ аффилиатов, ~17% трафика Tripster. Выплачено 64М &#8381; в 2022</td><td>270К+ вебмастеров</td></tr>
+            <tr><td><strong>Admitad</strong></td><td>CPA-сеть, комиссия до 8% за подтверждённое бронирование</td><td>Тысячи вебмастеров</td></tr>
+            <tr><td><strong>Контент-партнёры</strong></td><td>dorogi-ne-dorogi.ru, AllTurizm.ru, Putevki.ru — встроенные виджеты с автоподбором по контенту</td><td>Органический SEO-трафик</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="comp-takeaway"><strong>Ключевая стратегия:</strong> White-label для крупных брендов (Т-Банк, Победа) + массовая аффилиатная сеть через Travelpayouts (270К+ вебмастеров = 17% трафика). Tripster первым занял ключевые каналы в РФ.</div>
+    </div>
+
+    <!-- GETYOURGUIDE -->
+    <div class="comp-card">
+      <div class="comp-header gyg">GetYourGuide <span class="comp-geo">Глобальный</span></div>
+      <div class="comp-stats">
+        <div class="comp-stat"><div class="comp-stat-val">7–8%</div><div class="comp-stat-label">Комиссия аффилиатам</div></div>
+        <div class="comp-stat"><div class="comp-stat-val">30 дней</div><div class="comp-stat-label">Cookie</div></div>
+        <div class="comp-stat"><div class="comp-stat-val">150+</div><div class="comp-stat-label">Connectivity-партнёров</div></div>
+        <div class="comp-stat"><div class="comp-stat-val">15К+</div><div class="comp-stat-label">Аффилиатов</div></div>
+      </div>
+      <div class="comp-table-wrap">
+        <table class="comp-table">
+          <thead><tr><th>Партнёр</th><th>Механика привлечения</th><th>Масштаб</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Lufthansa Group</strong> (5 авиакомпаний)</td><td>Miles &amp; More: 4 мили за каждый &euro; на GYG. Промо в post-booking email и в приложении</td><td>~40М пассажиров/год</td></tr>
+            <tr><td><strong>Eurowings</strong> (2024)</td><td>Интеграция в post-booking flow лоукостера Lufthansa Group</td><td>Бюджетный сегмент</td></tr>
+            <tr><td><strong>Emirates Skywards</strong></td><td>1 миля за каждый &euro; — начисление баллов программы лояльности</td><td>Премиум-аудитория</td></tr>
+            <tr><td><strong>ITA Airways VOLARE</strong></td><td>5 баллов за каждый &euro; — интеграция в итальянскую программу</td><td>Итальянский рынок</td></tr>
+            <tr><td><strong>Flying Blue (AF-KLM)</strong></td><td>Начисление миль за экскурсии в рамках коалиционной программы</td><td>~20М участников</td></tr>
+            <tr><td><strong>Ethiopian Airlines</strong></td><td>Партнёрство для расширения на развивающиеся рынки</td><td>Африканский рынок</td></tr>
+            <tr><td><strong>HomeToGo</strong> (2023)</td><td>Post-booking интеграция: после бронирования жилья гостю предлагаются экскурсии GYG</td><td>Крупнейший метапоиск аренды</td></tr>
+            <tr><td><strong>Klarna / Zip</strong></td><td>BNPL (Buy Now Pay Later) — оплата экскурсий в рассрочку</td><td>Снижение барьера покупки</td></tr>
+            <tr><td><strong>American Express</strong></td><td>Ко-маркетинговые скидки для держателей карт Amex</td><td>Премиум-аудитория</td></tr>
+            <tr><td><strong>150+ connectivity</strong></td><td>API-интеграции с OTA, отелями, перевозчиками — автоматическая дистрибуция каталога</td><td>B2B-канал</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="comp-takeaway"><strong>Ключевая стратегия:</strong> Системная интеграция в авиакомпании и программы лояльности (Miles &amp; More, Skywards, Flying Blue). GYG — единственный, кто выстроил масштабные партнёрства с 6+ авиакомпаниями. Партнёрство с easyJet завершено в 2022 — easyJet перешёл к TUI Musement.</div>
+    </div>
+
+    <!-- VIATOR -->
+    <div class="comp-card">
+      <div class="comp-header viator">Viator (TripAdvisor) <span class="comp-geo">Глобальный</span></div>
+      <div class="comp-stats">
+        <div class="comp-stat"><div class="comp-stat-val">$840М</div><div class="comp-stat-label">Выручка (2024)</div></div>
+        <div class="comp-stat"><div class="comp-stat-val">400К+</div><div class="comp-stat-label">Экскурсий</div></div>
+        <div class="comp-stat"><div class="comp-stat-val">8%</div><div class="comp-stat-label">Комиссия аффилиатам</div></div>
+        <div class="comp-stat"><div class="comp-stat-val">240К+</div><div class="comp-stat-label">Travel-агентов</div></div>
+      </div>
+      <div class="comp-table-wrap">
+        <table class="comp-table">
+          <thead><tr><th>Партнёр</th><th>Механика привлечения</th><th>Масштаб</th></tr></thead>
+          <tbody>
+            <tr><td><strong>TripAdvisor</strong></td><td>Нативная интеграция — экскурсии Viator на страницах достопримечательностей. 46% выручки Tripadvisor = Viator</td><td>415М MAU</td></tr>
+            <tr><td><strong>Booking.com</strong></td><td>API-интеграция с 2021 — экскурсии Viator в разделе «Attractions»</td><td>Крупнейшая OTA мира</td></tr>
+            <tr><td><strong>Uber Explore</strong></td><td>In-app интеграция с 2022 — экскурсии прямо в приложении Uber</td><td>Сотни млн пользователей</td></tr>
+            <tr><td><strong>IHG One Rewards</strong></td><td>1000 бонусных баллов за каждое бронирование через Viator</td><td>200М+ участников</td></tr>
+            <tr><td><strong>Marriott Bonvoy</strong></td><td>Начисление баллов Bonvoy за экскурсии</td><td>Крупнейшая отельная программа</td></tr>
+            <tr><td><strong>Google Things to Do</strong></td><td>Листинг в поисковой выдаче Google — прямое бронирование из результатов</td><td>Глобальный охват</td></tr>
+            <tr><td><strong>Apple Maps Guides</strong></td><td>Экскурсии интегрированы в гиды Apple Maps</td><td>Экосистема Apple</td></tr>
+            <tr><td><strong>Expedia</strong></td><td>Supply-партнёрство — каталог Viator доступен на Expedia</td><td>Крупнейшая OTA группа</td></tr>
+            <tr><td><strong>Klarna / Zip / Affirm</strong></td><td>BNPL — оплата экскурсий в рассрочку</td><td>Снижение барьера</td></tr>
+            <tr><td><strong>Bokun</strong> (собственная)</td><td>Connectivity-платформа для операторов — дистрибуция на 50+ каналов</td><td>Инфраструктурный актив</td></tr>
+            <tr><td><strong>Hostfully</strong></td><td>Интеграция в guidebooks для vacation rentals — хозяин рекомендует экскурсии</td><td>Аренда жилья</td></tr>
+            <tr><td><strong>10К+ аффилиатов</strong></td><td>8% через Awin / ShareASale</td><td>Вебмастера</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="comp-takeaway"><strong>Ключевая стратегия:</strong> Максимальная дистрибуция через крупнейшие платформы (TripAdvisor 415М MAU, Booking, Uber, Google). Viator владеет Bokun — собственная connectivity-платформа для операторов, инфраструктурное преимущество.</div>
+    </div>
+
+    <!-- ВЫВОДЫ ДЛЯ СПУТНИК8 -->
+    <div class="comp-conclusion">
+      <h3>Выводы для Спутник8: что применимо в РФ</h3>
+      <div class="comp-conclusion-grid">
+        <div class="comp-conclusion-item">
+          <strong>Авиакомпании + мили</strong>
+          <span>Tripster уже с S7 и Победой. Цель Спутник8 — Аэрофлот Бонус, Ural Airlines, Nordwind</span>
+        </div>
+        <div class="comp-conclusion-item">
+          <strong>White-label для банков</strong>
+          <span>Т-Банк + Tripster = доказанная модель. Цель — СберПутешествия, Альфа, ВТБ</span>
+        </div>
+        <div class="comp-conclusion-item">
+          <strong>Post-booking email/push</strong>
+          <span>Самая масштабируемая механика, низкий порог входа. GYG делает это с 6+ авиакомпаниями</span>
+        </div>
+        <div class="comp-conclusion-item">
+          <strong>BNPL (рассрочка)</strong>
+          <span>GYG и Viator используют Klarna/Zip. В РФ аналог — Яндекс Сплит, Т-Банк рассрочка, Долями</span>
+        </div>
+        <div class="comp-conclusion-item">
+          <strong>Connectivity-платформа (API)</strong>
+          <span>Viator построил Bokun, GYG имеет 150+ партнёров. Спутник8 нужен масштабируемый API для B2B</span>
+        </div>
+        <div class="comp-conclusion-item">
+          <strong>Отельные программы</strong>
+          <span>Viator с IHG и Marriott. В РФ — Cosmos, Azimut, Accor (Россия)</span>
+        </div>
+      </div>
+
+      <div class="comp-warn">
+        <strong>Где Tripster уже занял позиции:</strong> Т-Банк, S7, Победа, Travelpayouts, Aviasales, BestBenefits — Tripster первым зашёл во все ключевые каналы РФ. Для Спутник8 приоритет — незанятые каналы (СберПутешествия, Аэрофлот, РЖД, Яндекс) и позиция «альтернативный/эксклюзивный поставщик» там, где Tripster уже есть.
+      </div>
+    </div>
+
+    <div class="disclaimer">Данные получены из открытых источников (март 2026). Партнёрские условия могут изменяться. Некоторые партнёрства могли быть завершены или обновлены.</div>
     </div>
   </section>
 
