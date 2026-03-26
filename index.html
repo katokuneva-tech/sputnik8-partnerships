@@ -836,6 +836,128 @@ body {
   margin-top: 12px;
 }
 
+/* ===== NONOBVIOUS CARDS ===== */
+.no-card {
+  margin-bottom: 36px;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+  transition: box-shadow .25s;
+}
+.no-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,.06); }
+.no-header {
+  display: flex;
+  align-items: stretch;
+}
+.no-icon {
+  min-width: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  flex-shrink: 0;
+  background: #f0f7ff;
+}
+.no-icon.cat-gov { background: #e6f7e6; }
+.no-icon.cat-biz { background: #fff7e6; }
+.no-icon.cat-inn { background: #f0e6ff; }
+.no-title-block {
+  padding: 16px 20px;
+  flex: 1;
+}
+.no-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.no-subtitle {
+  font-size: 12px;
+  color: #999;
+}
+.no-badges {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.badge-speed {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #f5f5f5;
+  color: #666;
+  border: 1px solid #e8e8e8;
+}
+.no-body { padding: 0 20px 20px; }
+.no-insight {
+  background: #f0f7ff;
+  border-radius: 4px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: #444;
+  line-height: 1.5;
+  border-left: 3px solid #2762F4;
+}
+.no-insight strong { color: #2762F4; }
+.no-insight.gov { background: #e6f7e6; border-color: #52c41a; }
+.no-insight.gov strong { color: #389e0d; }
+.no-insight.biz { background: #fff7e6; border-color: #d48806; }
+.no-insight.biz strong { color: #d48806; }
+.no-insight.inn { background: #f0e6ff; border-color: #722ed1; }
+.no-insight.inn strong { color: #722ed1; }
+.no-mechs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.no-mech {
+  background: #fafbfd;
+  border-radius: 4px;
+  padding: 12px 14px;
+  font-size: 13px;
+  color: #444;
+  line-height: 1.4;
+}
+.no-mech strong {
+  display: block;
+  color: #231F20;
+  margin-bottom: 3px;
+  font-size: 13px;
+}
+.no-source {
+  font-size: 11px;
+  color: #bbb;
+  margin-top: 8px;
+}
+.no-group-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #231F20;
+  margin: 48px 0 8px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #eee;
+}
+.no-group-title .no-group-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  margin-left: 10px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  letter-spacing: .3px;
+}
+.no-group-badge.gov { background: #e6f7e6; color: #389e0d; }
+.no-group-badge.biz { background: #fff7e6; color: #d48806; }
+.no-group-badge.inn { background: #f0e6ff; color: #722ed1; }
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .hero { padding: 48px 16px 40px; }
@@ -856,6 +978,10 @@ body {
   .pitch-appendix { grid-template-columns: 1fr; }
   .pitch-header { flex-direction: column; align-items: flex-start; }
   .pitch-meta { grid-template-columns: 1fr; }
+  .no-header { flex-direction: column; }
+  .no-icon { min-width: auto; padding: 10px; }
+  .no-badges { padding: 0 20px 12px; }
+  .no-mechs { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -2307,98 +2433,404 @@ body {
     <h2 class="section-title">Неочевидные возможности</h2>
     <p class="section-subtitle">Нестандартные вертикали и инновационные модели, выявленные через глубокий ресёрч</p>
 
-    <div class="mech-title" style="font-size:20px; margin-bottom:20px;">Топ-15 неочевидных партнёрств</div>
-    <div class="summary-table-wrap" style="margin-bottom:36px;">
-      <table class="summary-table">
-        <thead>
-          <tr><th>#</th><th>Партнёр / вертикаль</th><th>Тип</th><th>Потенциал</th><th>Механика</th><th>Скорость</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>1</td><td><strong>RUSSPASS</strong></td><td>Гос. платформа</td><td class="priority-max">Высокий</td><td>API-интеграция каталога Спутник8, AI-рекомендации</td><td>2–3 мес.</td></tr>
-          <tr><td>2</td><td><strong>2ГИС / Яндекс Карты</strong></td><td>Навигация</td><td class="priority-max">Высокий</td><td>Кнопка "Забронировать экскурсию" в карточке достопримечательности</td><td>4–6 мес.</td></tr>
-          <tr><td>3</td><td><strong>Пушкинская карта</strong></td><td>Гос. программа</td><td class="priority-max">Высокий</td><td>Приём оплаты через Пушкинскую карту, подборки для молодёжи</td><td>3–4 мес.</td></tr>
-          <tr><td>4</td><td><strong>FlowWow</strong></td><td>Подарки</td><td class="priority-max">Высокий</td><td>Экскурсия-подарок как новая категория на маркетплейсе (1.5М покупателей/год)</td><td>1–2 мес.</td></tr>
-          <tr><td>5</td><td><strong>Нацпроект "Туризм"</strong></td><td>Гос. субсидии</td><td class="priority-max">Высокий</td><td>Подача на грант как цифровой партнёр регионов (бюджет 61.4 млрд руб.)</td><td>6–12 мес.</td></tr>
-          <tr><td>6</td><td><strong>Девелоперы (ПИК, Самолёт)</strong></td><td>Недвижимость</td><td class="priority-max">Высокий</td><td>"Узнай свой будущий район" — экскурсии как инструмент продаж квартир</td><td>3–4 мес.</td></tr>
-          <tr><td>7</td><td><strong>Ростех Промтур</strong></td><td>Промтуризм</td><td class="priority-max">Высокий</td><td>Единый тикетинг для промышленных экскурсий (1.4М посетителей, +50%/год)</td><td>3–4 мес.</td></tr>
-          <tr><td>8</td><td><strong>Геймификация</strong></td><td>Продуктовая</td><td class="priority-max">Высокий</td><td>"Городской паспорт" со штампами, квест-экскурсии, уровни и достижения</td><td>4–6 мес.</td></tr>
-          <tr><td>9</td><td><strong>AI-персонализация</strong></td><td>Продуктовая</td><td class="priority-max">Высокий</td><td>AI-бот "Спутник" в Telegram — персональный подбор экскурсий</td><td>2–4 мес.</td></tr>
-          <tr><td>10</td><td><strong>Familio (генеалогия)</strong></td><td>Генеалогия</td><td class="priority-high">Средне-высокий</td><td>"Экскурсия по следам предков" — рост спроса +175% за 2025</td><td>1–2 мес.</td></tr>
-          <tr><td>11</td><td><strong>Подписная модель</strong></td><td>Продуктовая</td><td class="priority-high">Средне-высокий</td><td>"Спутник8 Плюс" — 1 экскурсия/мес. за 990–1990 руб.</td><td>2–3 мес.</td></tr>
-          <tr><td>12</td><td><strong>Фитнес/wellness</strong></td><td>Спорт</td><td class="priority-high">Средне-высокий</td><td>Фитнес-туры, йога-ретриты (24% клубов уже проводят, 22% хотят)</td><td>1–2 мес.</td></tr>
-          <tr><td>13</td><td><strong>HR-платформы (HH.ru)</strong></td><td>Рекрутинг</td><td class="priority-high">Средне-высокий</td><td>"Переехал? Узнай город за 2 часа" — при смене города в профиле</td><td>3–4 мес.</td></tr>
-          <tr><td>14</td><td><strong>BNPL (Долями, Сплит)</strong></td><td>Финтех</td><td class="priority-mid">Средний</td><td>Рассрочка для дорогих экскурсий (10К+ руб.), API открыты</td><td>1–2 мес.</td></tr>
-          <tr><td>15</td><td><strong>Литрес</strong></td><td>Книги</td><td class="priority-mid">Средний</td><td>"Пройди по местам героев" — push после прочтения книги</td><td>1–2 мес.</td></tr>
-        </tbody>
-      </table>
+    <!-- GROUP: GOV -->
+    <div class="no-group-title">Государственные программы и платформы <span class="no-group-badge gov">гос. сектор</span></div>
+
+    <div class="no-card">
+      <div class="no-header">
+        <div class="no-icon cat-gov">&#127963;</div>
+        <div class="no-title-block">
+          <div class="no-title">RUSSPASS</div>
+          <div class="no-subtitle">Гос. платформа &middot; 4+ млн пользователей &middot; 85 регионов &middot; Открытый API</div>
+        </div>
+        <div class="no-badges">
+          <span class="badge badge-max">Высокий</span>
+          <span class="badge-speed">2–3 мес.</span>
+        </div>
+      </div>
+      <div class="no-body">
+        <div class="no-insight gov"><strong>Почему неочевидно:</strong> Государственная платформа планирования путешествий от Правительства Москвы. Уже 4+ млн пользователей, AI-рекомендации внедрены в 2025 году. Главное — открытый API для партнёров через business.russpass.ru.</div>
+        <div class="no-mechs">
+          <div class="no-mech"><strong>API-интеграция каталога</strong>Экскурсии Спутник8 как native-контент RUSSPASS. Автоматическое размещение через открытый API.</div>
+          <div class="no-mech"><strong>AI-рекомендации</strong>Включение в AI-подборки: "Чем заняться в [городе]" &rarr; экскурсии Спутник8.</div>
+          <div class="no-mech"><strong>Совместные маршруты</strong>RUSSPASS строит маршрут &rarr; Спутник8 обеспечивает экскурсионное наполнение.</div>
+        </div>
+        <div class="no-source">Источник: mos.ru, business.russpass.ru (март 2026)</div>
+      </div>
     </div>
 
-    <div class="mech-title" style="font-size:18px; margin-bottom:16px;">Quick Wins — запуск за 1–2 месяца</div>
-    <div class="final-summary" style="margin-bottom:36px;">
+    <div class="no-card">
+      <div class="no-header">
+        <div class="no-icon cat-gov">&#127891;</div>
+        <div class="no-title-block">
+          <div class="no-title">Пушкинская карта</div>
+          <div class="no-subtitle">Гос. программа &middot; 5 000 руб./год на культуру &middot; 14–22 года &middot; 10М+ молодёжи</div>
+        </div>
+        <div class="no-badges">
+          <span class="badge badge-max">Высокий</span>
+          <span class="badge-speed">3–4 мес.</span>
+        </div>
+      </div>
+      <div class="no-body">
+        <div class="no-insight gov"><strong>Окно возможности:</strong> В 2026 программа переходит с Почта Банк на ВТБ — момент обновления партнёрской сети. ~30 000 культурных учреждений подключены. Гарантированное финансирование.</div>
+        <div class="no-mechs">
+          <div class="no-mech"><strong>Приём оплаты Пушкинской картой</strong>Подключение экскурсий Спутник8 к приёму оплаты через программу (culture.ru).</div>
+          <div class="no-mech"><strong>Подборки для молодёжи</strong>"Экскурсии по Пушкинской карте" — молодёжный контент, квесты, интерактивные форматы.</div>
+          <div class="no-mech"><strong>Партнёрство с ВТБ</strong>Переход на ВТБ = новые партнёрские договоры. Окно для входа.</div>
+        </div>
+        <div class="no-source">Источник: culture.ru/pushkinskaya-karta (2026)</div>
+      </div>
+    </div>
+
+    <div class="no-card">
+      <div class="no-header">
+        <div class="no-icon cat-gov">&#127970;</div>
+        <div class="no-title-block">
+          <div class="no-title">Нацпроект "Туризм и гостеприимство"</div>
+          <div class="no-subtitle">Бюджет 61.4 млрд руб. (2026) &middot; 9 млрд субсидий регионам &middot; Цель: 140 млн турпоездок</div>
+        </div>
+        <div class="no-badges">
+          <span class="badge badge-max">Высокий</span>
+          <span class="badge-speed">6–12 мес.</span>
+        </div>
+      </div>
+      <div class="no-body">
+        <div class="no-insight gov"><strong>Прямой бюджет:</strong> 9 млрд руб./год — единая субсидия регионам на развитие туризма. Спутник8 может войти как технологический партнёр для цифровизации экскурсионных услуг в регионах.</div>
+        <div class="no-mechs">
+          <div class="no-mech"><strong>Грант как цифровой партнёр</strong>Подача на субсидию: цифровая платформа бронирования экскурсий для региональных туристических программ.</div>
+          <div class="no-mech"><strong>Региональные ТИЦ</strong>Спутник8 как рекомендованная платформа в Туристических информационных центрах по всей стране.</div>
+          <div class="no-mech"><strong>Visit-порталы</strong>White-label виджет бронирования для региональных порталов (visit-kaluga.ru и т.д.).</div>
+        </div>
+        <div class="no-source">Источник: rspp.ru, basinn.ru (2026)</div>
+      </div>
+    </div>
+
+    <!-- GROUP: NICHE VERTICALS -->
+    <div class="no-group-title">Нестандартные вертикали <span class="no-group-badge biz">бизнес</span></div>
+
+    <div class="no-card">
+      <div class="no-header">
+        <div class="no-icon cat-biz">&#128209;</div>
+        <div class="no-title-block">
+          <div class="no-title">2ГИС / Яндекс Карты</div>
+          <div class="no-subtitle">Навигация &middot; 90М+ пользователей (2ГИС) &middot; Тестирует бронирование с февраля 2026</div>
+        </div>
+        <div class="no-badges">
+          <span class="badge badge-max">Высокий</span>
+          <span class="badge-speed">4–6 мес.</span>
+        </div>
+      </div>
+      <div class="no-body">
+        <div class="no-insight biz"><strong>Почему неочевидно:</strong> Карты не воспринимаются как travel-партнёры, но это точка максимального travel-intent — человек стоит у достопримечательности и смотрит в телефон. 2ГИС уже тестирует запись в салоны из карточки. Экскурсии — логичная следующая категория.</div>
+        <div class="no-mechs">
+          <div class="no-mech"><strong>Кнопка "Забронировать экскурсию"</strong>В карточке достопримечательности — по аналогии с кнопкой записи в салоны красоты (уже работает).</div>
+          <div class="no-mech"><strong>AI-ассистент 2ГИС</strong>Рекомендует экскурсии при запросе "что посмотреть в [городе]".</div>
+          <div class="no-mech"><strong>Geo-push у достопримечательности</strong>"Экскурсия начинается через 30 минут" — при геолокации пользователя.</div>
+        </div>
+        <div class="no-source">Источник: sostav.ru (февраль 2026)</div>
+      </div>
+    </div>
+
+    <div class="no-card">
+      <div class="no-header">
+        <div class="no-icon cat-biz">&#127873;</div>
+        <div class="no-title-block">
+          <div class="no-title">FlowWow</div>
+          <div class="no-subtitle">Маркетплейс подарков &middot; 14 000+ продавцов &middot; 1.5М покупателей/год &middot; Оборот +37%</div>
+        </div>
+        <div class="no-badges">
+          <span class="badge badge-max">Высокий</span>
+          <span class="badge-speed">1–2 мес.</span>
+        </div>
+      </div>
+      <div class="no-body">
+        <div class="no-insight biz"><strong>Quick Win:</strong> FlowWow активно переформатируется из "доставки цветов" в "платформу подарков" с 25+ категориями. Экскурсия-подарок — готовая новая категория. Спутник8 уже имеет подарочные сертификаты, но не дистрибутирует через внешние платформы.</div>
+        <div class="no-mechs">
+          <div class="no-mech"><strong>Категория "Впечатления"</strong>Электронные сертификаты на экскурсии в каталоге FlowWow. Средний чек 3 000–5 000 руб.</div>
+          <div class="no-mech"><strong>Сезонные бандлы</strong>"Букет + экскурсия" на 8 марта, "Рождественский тур + набор сладостей" к Новому году.</div>
+          <div class="no-mech"><strong>Giftery / корпоративный канал</strong>Подарочные сертификаты Спутник8 через Giftery — доступ к HR-подаркам.</div>
+        </div>
+        <div class="no-source">Источник: new-retail.ru (2025)</div>
+      </div>
+    </div>
+
+    <div class="no-card">
+      <div class="no-header">
+        <div class="no-icon cat-biz">&#127959;</div>
+        <div class="no-title-block">
+          <div class="no-title">Девелоперы (ПИК, Самолёт, ЛСР, А101)</div>
+          <div class="no-subtitle">Недвижимость &middot; 200 000+ квартир/год &middot; Маркетинг через впечатления от района</div>
+        </div>
+        <div class="no-badges">
+          <span class="badge badge-max">Высокий</span>
+          <span class="badge-speed">3–4 мес.</span>
+        </div>
+      </div>
+      <div class="no-body">
+        <div class="no-insight biz"><strong>Почему неочевидно:</strong> Застройщики тратят миллиарды на маркетинг районов. Тренд 2025–2026: гастрономические экскурсии, прогулки, лекции вокруг ЖК — "маркетинг смысловых полей". Покупатель хочет "почувствовать" район ДО покупки.</div>
+        <div class="no-mechs">
+          <div class="no-mech"><strong>"Узнай свой район за 2 часа"</strong>Экскурсия по району вокруг ЖК как инструмент в воронке продаж застройщика.</div>
+          <div class="no-mech"><strong>Welcome-gift при заселении</strong>Подарочный сертификат на экскурсию для каждого покупателя квартиры.</div>
+          <div class="no-mech"><strong>Комьюнити-экскурсии</strong>Тематические экскурсии для чатов будущих жильцов: "познакомь соседей до заселения".</div>
+        </div>
+        <div class="no-source">Источник: setevie.com/articles/trendy-marketinga-nedvizhimosti (2026)</div>
+      </div>
+    </div>
+
+    <div class="no-card">
+      <div class="no-header">
+        <div class="no-icon cat-biz">&#127981;</div>
+        <div class="no-title-block">
+          <div class="no-title">Ростех Промтур</div>
+          <div class="no-subtitle">Промышленный туризм &middot; 1.4М посетителей (2024) &middot; +50%/год &middot; Нацпроект</div>
+        </div>
+        <div class="no-badges">
+          <span class="badge badge-max">Высокий</span>
+          <span class="badge-speed">3–4 мес.</span>
+        </div>
+      </div>
+      <div class="no-body">
+        <div class="no-insight biz"><strong>Растущий сегмент:</strong> Экскурсии на заводы и фабрики — 1.4 млн посетителей в 2024, рост 50%/год. Проект "Промышленный Туризм в РФ" — один из лучших в 2025 году. Спутник8 уже имеет раздел, но потенциал B2B с предприятиями не раскрыт.</div>
+        <div class="no-mechs">
+          <div class="no-mech"><strong>Единый тикетинг</strong>Спутник8 как платформа бронирования для всех экскурсий Ростех Промтур (promtur.rostec.ru).</div>
+          <div class="no-mech"><strong>Корпоративный формат</strong>Экскурсии на заводы как team-building и профориентация. Высокий чек.</div>
+          <div class="no-mech"><strong>B2G партнёрства</strong>Сотрудничество с региональными администрациями по развитию промтуризма.</div>
+        </div>
+        <div class="no-source">Источник: promtourism.ru, promtur.rostec.ru (2025)</div>
+      </div>
+    </div>
+
+    <div class="no-card">
+      <div class="no-header">
+        <div class="no-icon cat-biz">&#128218;</div>
+        <div class="no-title-block">
+          <div class="no-title">Familio + генеалогический туризм</div>
+          <div class="no-subtitle">Генеалогия &middot; 1.5М посещений/мес. &middot; Спрос +175% за 2025</div>
+        </div>
+        <div class="no-badges">
+          <span class="badge badge-high">Средне-высокий</span>
+          <span class="badge-speed">1–2 мес.</span>
+        </div>
+      </div>
+      <div class="no-body">
+        <div class="no-insight biz"><strong>Новый рынок:</strong> Спрос на генеалогические услуги вырос на 175% за 2025 год. Россияне платят за родословную от 200 000 до 2.5 млн руб. Каждый, кто составил родословную — потенциальный генеалогический турист.</div>
+        <div class="no-mechs">
+          <div class="no-mech"><strong>"Экскурсия по следам предков"</strong>Персонализированный тур по местам семейной истории после составления родословной на Familio.</div>
+          <div class="no-mech"><strong>Кросс-промо</strong>Совместный лендинг, email-рассылки. Средний чек 10 000–50 000 руб. (индивидуальные туры).</div>
+          <div class="no-mech"><strong>Малые города</strong>Маршруты по малым городам — уникальный контент, которого нет у конкурентов.</div>
+        </div>
+        <div class="no-source">Источник: rg.ru (август 2025)</div>
+      </div>
+    </div>
+
+    <div class="no-card">
+      <div class="no-header">
+        <div class="no-icon cat-biz">&#127947;</div>
+        <div class="no-title-block">
+          <div class="no-title">Фитнес / wellness</div>
+          <div class="no-subtitle">World Class, Alex Fitness &middot; 8 000+ клубов &middot; 24% уже проводят фитнес-туры</div>
+        </div>
+        <div class="no-badges">
+          <span class="badge badge-high">Средне-высокий</span>
+          <span class="badge-speed">1–2 мес.</span>
+        </div>
+      </div>
+      <div class="no-body">
+        <div class="no-insight biz"><strong>Почему неочевидно:</strong> Фитнес — indoor-индустрия, но 46% клубов хотят организовывать outdoor-активности. Фитнес-туризм — тренд 2025 года. Йога-ретриты на Алтае, марафон-туры, велоэкскурсии — всё на стыке фитнеса и travel.</div>
+        <div class="no-mechs">
+          <div class="no-mech"><strong>Категория "Фитнес и wellness"</strong>Спутник8 как платформа бронирования фитнес-туров и ретритов.</div>
+          <div class="no-mech"><strong>QR-код в клубе</strong>"Активный отдых на выходных" &rarr; велоэкскурсии, пешие туры, йога на природе.</div>
+          <div class="no-mech"><strong>Wellness-программы</strong>Экскурсии как часть корпоративной программы здоровья для сотрудников.</div>
+        </div>
+        <div class="no-source">Источник: russiatourism.ru, travel.yandex.ru/pro (2025)</div>
+      </div>
+    </div>
+
+    <div class="no-card">
+      <div class="no-header">
+        <div class="no-icon cat-biz">&#128188;</div>
+        <div class="no-title-block">
+          <div class="no-title">HR-платформы и релокация</div>
+          <div class="no-subtitle">HH.ru, SuperJob, CDEK Relocation &middot; 3+ млн переездов/год в России</div>
+        </div>
+        <div class="no-badges">
+          <span class="badge badge-high">Средне-высокий</span>
+          <span class="badge-speed">3–4 мес.</span>
+        </div>
+      </div>
+      <div class="no-body">
+        <div class="no-insight biz"><strong>Скрытый travel-intent:</strong> Люди, переехавшие в новый город — идеальная аудитория. 70% считают переезд стрессовым, "знакомство с районом" — ключевая рекомендация для адаптации. Онбординг через квест-экскурсии — тренд HR 2025.</div>
+        <div class="no-mechs">
+          <div class="no-mech"><strong>HH.ru баннер</strong>"Переехал в новый город? Узнай его за 2 часа" — при смене города в профиле.</div>
+          <div class="no-mech"><strong>Welcome-экскурсия</strong>Корпоративные пакеты для HR: квест-экскурсия как шаг онбординга новых сотрудников.</div>
+          <div class="no-mech"><strong>CDEK Relocation</strong>Промокод на экскурсию в пакете услуг по переезду.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="no-card">
+      <div class="no-header">
+        <div class="no-icon cat-biz">&#128058;</div>
+        <div class="no-title-block">
+          <div class="no-title">Pet-friendly туризм</div>
+          <div class="no-subtitle">Бронирования с животными +114% &middot; Стандарт Роскачества &middot; Аудитория 35–44</div>
+        </div>
+        <div class="no-badges">
+          <span class="badge badge-mid">Средний</span>
+          <span class="badge-speed">2–3 мес.</span>
+        </div>
+      </div>
+      <div class="no-body">
+        <div class="no-insight biz"><strong>Нишевый, но растущий:</strong> Бронирования квартир с питомцами +58%, загородных домов +114%. Роскачество завершило стандарт для pet-friendly гостиниц. Лидеры: Петербург, Сочи, Москва.</div>
+        <div class="no-mechs">
+          <div class="no-mech"><strong>Фильтр "с питомцем"</strong>Pet-friendly экскурсии: парковые, пешие, загородные — куда можно с собакой/кошкой.</div>
+          <div class="no-mech"><strong>Зоомагазины</strong>Промокоды на экскурсии в посылках Четыре лапы / PetShop.ru.</div>
+        </div>
+        <div class="no-source">Источник: ria.ru (июль 2025)</div>
+      </div>
+    </div>
+
+    <div class="no-card">
+      <div class="no-header">
+        <div class="no-icon cat-biz">&#128214;</div>
+        <div class="no-title-block">
+          <div class="no-title">Литрес + книжные сервисы</div>
+          <div class="no-subtitle">14+ млн пользователей &middot; Литературный travel-intent &middot; 266 литературных экскурсий по Москве</div>
+        </div>
+        <div class="no-badges">
+          <span class="badge badge-mid">Средний</span>
+          <span class="badge-speed">1–2 мес.</span>
+        </div>
+      </div>
+      <div class="no-body">
+        <div class="no-insight biz"><strong>Почему неочевидно:</strong> Книжная индустрия далека от travel, но 72% читателей говорят, что книги подтолкнули их к путешествиям. Каждый любитель Достоевского — потенциальный турист в Петербурге.</div>
+        <div class="no-mechs">
+          <div class="no-mech"><strong>Push после прочтения</strong>"Пройди по местам [автора]" — push-уведомление в Литрес/Букмейт после завершения книги.</div>
+          <div class="no-mech"><strong>Коллекции</strong>"Экскурсии по мотивам книг": Булгаков в Москве, Чехов в Таганроге, Гоголь в Петербурге.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GROUP: INNOVATION -->
+    <div class="no-group-title">Инновационные модели <span class="no-group-badge inn">продукт</span></div>
+
+    <div class="no-card">
+      <div class="no-header">
+        <div class="no-icon cat-inn">&#127918;</div>
+        <div class="no-title-block">
+          <div class="no-title">Геймификация — городские квесты</div>
+          <div class="no-subtitle">Глобальный рынок $30–40 млрд &middot; Квест-экскурсии, "Городской паспорт", коллекции</div>
+        </div>
+        <div class="no-badges">
+          <span class="badge badge-max">Высокий</span>
+          <span class="badge-speed">4–6 мес.</span>
+        </div>
+      </div>
+      <div class="no-body">
+        <div class="no-insight inn"><strong>Трансформация продукта:</strong> Экскурсионный бизнес в "классическом" формате: гид + группа + маршрут. Геймификация переворачивает формат — участники решают загадки, собирают штампы, соревнуются.</div>
+        <div class="no-mechs">
+          <div class="no-mech"><strong>"Городской паспорт"</strong>Цифровой паспорт путешественника, коллекция штампов за посещённые экскурсии/города.</div>
+          <div class="no-mech"><strong>Квест-экскурсии</strong>Не просто гид рассказывает — участники ищут артефакты, решают загадки, проходят уровни.</div>
+          <div class="no-mech"><strong>Уровни и достижения</strong>"Новичок" &rarr; "Краевед" &rarr; "Эксперт города" &rarr; скидки на следующие экскурсии. Виральность.</div>
+          <div class="no-mech"><strong>Сезонные квесты</strong>"Охота за сокровищами Петербурга" — лимитированные серии, создающие urgency.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="no-card">
+      <div class="no-header">
+        <div class="no-icon cat-inn">&#129302;</div>
+        <div class="no-title-block">
+          <div class="no-title">AI-персонализация</div>
+          <div class="no-subtitle">RUSSPASS внедрил AI в 2025 &middot; Мультимодальные агенты — тренд 2026</div>
+        </div>
+        <div class="no-badges">
+          <span class="badge badge-max">Высокий</span>
+          <span class="badge-speed">2–4 мес.</span>
+        </div>
+      </div>
+      <div class="no-body">
+        <div class="no-insight inn"><strong>Конкурентное преимущество:</strong> RUSSPASS уже использует AI-рекомендации. AI ChatBot в travel — глобальный тренд. Спутник8 может первым среди маркетплейсов экскурсий внедрить AI-подбор.</div>
+        <div class="no-mechs">
+          <div class="no-mech"><strong>AI-бот "Спутник" в Telegram</strong>"Расскажи, что нравится — подберу экскурсию". Персональные рекомендации по интересам.</div>
+          <div class="no-mech"><strong>Персонализация по истории</strong>После первой экскурсии — рекомендация следующей на основе предпочтений.</div>
+          <div class="no-mech"><strong>AI-аудиогид</strong>Аудиогид, который адаптирует рассказ под вопросы пользователя в реальном времени.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="no-card">
+      <div class="no-header">
+        <div class="no-icon cat-inn">&#128179;</div>
+        <div class="no-title-block">
+          <div class="no-title">Подписная модель — "Спутник8 Плюс"</div>
+          <div class="no-subtitle">Глобальный рынок travel-подписок $375М &middot; Рекуррентная выручка</div>
+        </div>
+        <div class="no-badges">
+          <span class="badge badge-high">Средне-высокий</span>
+          <span class="badge-speed">2–3 мес.</span>
+        </div>
+      </div>
+      <div class="no-body">
+        <div class="no-insight inn"><strong>Первый в России:</strong> Привычка подписываться на контент есть (Яндекс Плюс, Кинопоиск), но на впечатления — ещё нет. Спутник8 может быть первым.</div>
+        <div class="no-mechs">
+          <div class="no-mech"><strong>990–1990 руб./мес.</strong>1 экскурсия в месяц + скидки 15–20% на все остальные. Рекуррентная выручка.</div>
+          <div class="no-mech"><strong>Семейная подписка</strong>2 990 руб./мес. = 2 экскурсии на семью + детские со скидкой.</div>
+          <div class="no-mech"><strong>Партнёрская подписка</strong>Банк/телеком оплачивает подписку для своих премиальных клиентов.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="no-card">
+      <div class="no-header">
+        <div class="no-icon cat-inn">&#128176;</div>
+        <div class="no-title-block">
+          <div class="no-title">BNPL — экскурсия в рассрочку</div>
+          <div class="no-subtitle">Долями, Яндекс Сплит, Подели &middot; API открыты &middot; Новые правила ЦБ с апреля 2026</div>
+        </div>
+        <div class="no-badges">
+          <span class="badge badge-mid">Средний</span>
+          <span class="badge-speed">1–2 мес.</span>
+        </div>
+      </div>
+      <div class="no-body">
+        <div class="no-insight inn"><strong>Quick Win:</strong> Экскурсии кажутся "маленькими покупками" (1 500–3 000 руб.), но индивидуальные туры 10 000–50 000 руб. — идеальны для BNPL. "Экскурсия мечты — от 500 руб./мес." С апреля 2026 — новые правила ЦБ: рассрочка до 50 000 руб. без кредитной истории.</div>
+        <div class="no-mechs">
+          <div class="no-mech"><strong>Интеграция на страницу оплаты</strong>Яндекс Сплит / Долями — API открыты, интеграция за 1–2 спринта.</div>
+          <div class="no-mech"><strong>Фокус на дорогие продукты</strong>Индивидуальные экскурсии, многодневные туры — "от 2 500 руб./мес."</div>
+        </div>
+        <div class="no-source">Источник: banki.ru (2026)</div>
+      </div>
+    </div>
+
+    <!-- QUICK WINS -->
+    <div class="no-group-title">Quick Wins — запуск за 1–2 месяца</div>
+    <div class="final-summary" style="margin-bottom:24px;">
       <div class="fs-grid">
         <div class="fs-card">
           <div class="fs-num" style="font-size:20px;">FlowWow</div>
           <div class="fs-label">Экскурсия как подарок</div>
-          <div class="fs-text">Разместить подарочные сертификаты на экскурсии в каталоге FlowWow. 1.5М покупателей/год, оборот +37%. Нужен только каталог и электронные сертификаты.</div>
+          <div class="fs-text">Подарочные сертификаты в каталоге FlowWow. 1.5М покупателей/год. Нужен только каталог и электронные сертификаты.</div>
         </div>
         <div class="fs-card">
           <div class="fs-num" style="font-size:20px;">BNPL</div>
-          <div class="fs-label">Экскурсия в рассрочку</div>
-          <div class="fs-text">Подключить Яндекс Сплит / Долями к оплате. API открыты. Фокус на дорогие продукты (10К+ руб.). Увеличивает конверсию на 20–30%.</div>
+          <div class="fs-label">Рассрочка на дорогие экскурсии</div>
+          <div class="fs-text">Подключить Яндекс Сплит / Долями. API открыты. +20–30% конверсия на продуктах от 10К руб.</div>
         </div>
         <div class="fs-card">
           <div class="fs-num" style="font-size:20px;">Familio</div>
           <div class="fs-label">Генеалогический туризм</div>
-          <div class="fs-text">Совместный лендинг "Генеалогический тур" + кросс-промо в рассылках. Спрос +175% за 2025 год. 1.5М посещений/мес.</div>
+          <div class="fs-text">Совместный лендинг + кросс-промо. Спрос +175%. Высокий чек (10К–50К руб.).</div>
         </div>
         <div class="fs-card">
           <div class="fs-num" style="font-size:20px;">RUSSPASS</div>
-          <div class="fs-label">Гос. платформа</div>
-          <div class="fs-text">Заявка на business.russpass.ru + интеграция каталога через открытый API. 4+ млн пользователей, 85 регионов.</div>
+          <div class="fs-label">Гос. платформа (API)</div>
+          <div class="fs-text">Заявка на business.russpass.ru + интеграция каталога. 4+ млн пользователей, 85 регионов.</div>
         </div>
       </div>
     </div>
 
-    <div class="mech-title" style="font-size:18px; margin-bottom:16px;">Ключевые инсайты из ресёрча</div>
-    <div class="ref-list" style="margin-bottom:20px;">
-      <div class="ref-item">
-        <div class="ref-icon">&#127981;</div>
-        <div class="ref-content">
-          <div class="ref-name">Промышленный туризм — 1.4М посетителей, +50%/год</div>
-          <div class="ref-desc">Ростех Промтур (promtur.rostec.ru) — готовый партнёр. Экскурсии на заводы — один из самых динамичных сегментов с институциональной поддержкой (нацпроект).</div>
-        </div>
-      </div>
-      <div class="ref-item">
-        <div class="ref-icon">&#128209;</div>
-        <div class="ref-content">
-          <div class="ref-name">2ГИС — 90М+ пользователей, тестирует бронирование (с февраля 2026)</div>
-          <div class="ref-desc">2ГИС уже позволяет записываться в салоны красоты из карточки. Экскурсии — логичная следующая категория. Кнопка "Забронировать экскурсию" у достопримечательности — максимальный travel-intent.</div>
-        </div>
-      </div>
-      <div class="ref-item">
-        <div class="ref-icon">&#127891;</div>
-        <div class="ref-content">
-          <div class="ref-name">Пушкинская карта — 5000 руб./год, 10М+ молодёжи</div>
-          <div class="ref-desc">Переход программы с Почта Банк на ВТБ в 2026 — окно для подключения новых партнёров. Гарантированное финансирование, молодёжная аудитория.</div>
-        </div>
-      </div>
-      <div class="ref-item">
-        <div class="ref-icon">&#128058;</div>
-        <div class="ref-content">
-          <div class="ref-name">Pet-friendly туризм — +114% рост бронирований</div>
-          <div class="ref-desc">Новый стандарт Роскачества для pet-friendly гостиниц. Фильтр "с питомцем" на Спутник8 и партнёрство с зоомагазинами — новый нишевой рынок.</div>
-        </div>
-      </div>
-      <div class="ref-item">
-        <div class="ref-icon">&#128218;</div>
-        <div class="ref-content">
-          <div class="ref-name">Генеалогический туризм — +175% роста спроса</div>
-          <div class="ref-desc">Familio (1.5М посещений/мес.) — партнёр для создания "Экскурсий по следам предков". Маршруты по малым городам — контент, которого нет у конкурентов.</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="disclaimer" style="margin-top:12px;">Данные по RUSSPASS, Пушкинской карте, промтуризму, pet-friendly и генеалогии получены из открытых источников (март 2026). Цифры роста и аудитории могут изменяться. Полный отчёт с 40+ источниками — в файле исследования.</div>
+    <div class="disclaimer">Данные получены из открытых источников (40+ источников, март 2026). Цифры роста и аудитории могут изменяться. Ссылки на источники указаны в каждой карточке.</div>
     </div>
   </section>
 
