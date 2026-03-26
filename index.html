@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Спутник8 — Стратегия партнёрств</title>
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'PT Sans Caption', sans-serif;
+  color: #231F20;
+  background: #fff;
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== HEADER ===== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo svg { display: block; }
+.header-nav { display: flex; gap: 28px; align-items: center; }
+.header-nav a {
+  color: #444;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color .2s;
+}
+.header-nav a:hover { color: #2762F4; }
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(135deg, #f8f9fb 0%, #eef3ff 100%);
+  padding: 80px 20px 70px;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  color: #231F20;
+}
+.hero p {
+  font-size: 18px;
+  color: #666;
+  max-width: 680px;
+  margin: 0 auto 32px;
+  line-height: 1.5;
+}
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.hero-stat { text-align: center; }
+.hero-stat .num {
+  font-size: 36px;
+  font-weight: 700;
+  color: #2762F4;
+}
+.hero-stat .label {
+  font-size: 13px;
+  color: #999;
+  margin-top: 2px;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== SECTION ===== */
+.section { padding: 60px 0; }
+.section + .section { border-top: 1px solid #eee; }
+
+.section-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #231F20;
+}
+.section-subtitle {
+  font-size: 16px;
+  color: #999;
+  margin-bottom: 40px;
+  max-width: 600px;
+}
+
+/* ===== SUMMARY TABLE ===== */
+.summary-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 40px;
+  border-radius: 6px;
+  border: 1px solid #eee;
+}
+.summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.summary-table th {
+  background: #f8f9fb;
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 700;
+  color: #444;
+  border-bottom: 2px solid #eee;
+  white-space: nowrap;
+}
+.summary-table td {
+  padding: 11px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: top;
+}
+.summary-table tr:last-child td { border-bottom: none; }
+.summary-table tr:hover td { background: #fafbfd; }
+.priority-max { color: #d4380d; font-weight: 700; }
+.priority-vhigh { color: #cf1322; font-weight: 700; }
+.priority-high { color: #d48806; font-weight: 700; }
+.priority-mid { color: #7c7c7c; font-weight: 700; }
+.priority-low { color: #bbb; font-weight: 700; }
+
+/* ===== VERTICAL CARDS ===== */
+.vertical-card {
+  margin-bottom: 48px;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+  transition: box-shadow .25s;
+}
+.vertical-card:hover {
+  box-shadow: 0 4px 24px rgba(0,0,0,.06);
+}
+
+.vc-header {
+  display: flex;
+  align-items: stretch;
+}
+.vc-number {
+  min-width: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  background: #2762F4;
+  flex-shrink: 0;
+}
+.vc-number.p-max { background: #d4380d; }
+.vc-number.p-vhigh { background: #cf1322; }
+.vc-number.p-high { background: #d48806; }
+.vc-number.p-mid { background: #8c8c8c; }
+.vc-number.p-low { background: #bfbfbf; }
+
+.vc-title-block {
+  padding: 20px 24px;
+  flex: 1;
+}
+.vc-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.vc-companies {
+  font-size: 13px;
+  color: #999;
+}
+.vc-priority-badge {
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+}
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .3px;
+  white-space: nowrap;
+}
+.badge-max { background: #fff1f0; color: #d4380d; border: 1px solid #ffccc7; }
+.badge-vhigh { background: #fff1f0; color: #cf1322; border: 1px solid #ffa39e; }
+.badge-high { background: #fffbe6; color: #d48806; border: 1px solid #ffe58f; }
+.badge-mid { background: #f5f5f5; color: #666; border: 1px solid #d9d9d9; }
+.badge-low { background: #fafafa; color: #999; border: 1px solid #e8e8e8; }
+
+.vc-body { padding: 0 24px 24px; }
+
+/* Why block */
+.vc-why {
+  background: #f8f9fb;
+  border-radius: 4px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+}
+.vc-why-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #2762F4;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-bottom: 8px;
+}
+.vc-why ul { list-style: none; }
+.vc-why li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #444;
+}
+.vc-why li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 8px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #2762F4;
+}
+
+/* Mechanics table */
+.mech-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #231F20;
+}
+.mech-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 24px;
+  border-radius: 4px;
+  border: 1px solid #eee;
+}
+.mech-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.mech-table th {
+  background: #f8f9fb;
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 700;
+  color: #666;
+  border-bottom: 1px solid #eee;
+  white-space: nowrap;
+}
+.mech-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #f5f5f5;
+  vertical-align: top;
+  line-height: 1.5;
+}
+.mech-table tr:last-child td { border-bottom: none; }
+.mech-num {
+  color: #2762F4;
+  font-weight: 700;
+  text-align: center;
+}
+.complexity-low { color: #52c41a; }
+.complexity-mid { color: #d48806; }
+.complexity-high { color: #cf1322; }
+.complexity-done { color: #2762F4; }
+
+/* References */
+.ref-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #231F20;
+}
+.ref-list { display: flex; flex-direction: column; gap: 12px; }
+.ref-item {
+  display: flex;
+  gap: 14px;
+  padding: 14px 16px;
+  background: #fafbfd;
+  border-radius: 4px;
+  border-left: 3px solid #FFD300;
+}
+.ref-icon {
+  flex-shrink: 0;
+  width: 36px; height: 36px;
+  background: #FFD300;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+.ref-content { flex: 1; }
+.ref-name {
+  font-weight: 700;
+  font-size: 14px;
+  color: #231F20;
+  margin-bottom: 3px;
+}
+.ref-desc {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* ===== FINAL SUMMARY ===== */
+.final-summary {
+  background: #f8f9fb;
+  border-radius: 6px;
+  padding: 32px;
+  margin-top: 20px;
+}
+.final-summary h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.fs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+.fs-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 20px;
+}
+.fs-card .fs-num {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2762F4;
+  margin-bottom: 6px;
+}
+.fs-card .fs-label {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.fs-card .fs-text {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #231F20;
+  color: #999;
+  padding: 40px 20px;
+  margin-top: 60px;
+}
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.footer-logo svg path, .footer-logo svg circle { fill: #fff; }
+.footer-logo svg path[fill="#FFD300"] { fill: #FFD300; }
+.footer-text { font-size: 12px; color: #666; }
+
+/* ===== TOC / NAV ===== */
+.toc {
+  position: sticky;
+  top: 60px;
+  background: #fff;
+  z-index: 50;
+  border-bottom: 1px solid #eee;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.toc-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 0;
+  white-space: nowrap;
+}
+.toc a {
+  display: inline-block;
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #666;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: all .2s;
+  flex-shrink: 0;
+}
+.toc a:hover, .toc a.active {
+  color: #2762F4;
+  border-bottom-color: #2762F4;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .hero { padding: 48px 16px 40px; }
+  .hero h1 { font-size: 28px; }
+  .hero p { font-size: 15px; }
+  .hero-stats { gap: 24px; }
+  .hero-stat .num { font-size: 24px; }
+  .section-title { font-size: 24px; }
+  .vc-header { flex-direction: column; }
+  .vc-number { min-width: auto; padding: 12px; font-size: 20px; }
+  .vc-priority-badge { padding: 0 24px 16px; }
+  .vc-body { padding: 0 16px 16px; }
+  .header-nav { display: none; }
+  .fs-grid { grid-template-columns: 1fr; }
+  .ref-item { flex-direction: column; }
+  .final-summary { padding: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="155" height="24" viewBox="0 0 155 24">
+        <g fill="none" fill-rule="evenodd"><g fill-rule="nonzero"><g>
+          <g transform="translate(0 0)">
+            <path fill="#231F20" d="M6.87 9.532L.251 14.657.251 15.725 6.55 12.735zM14.878 16.152L11.354 23.732 10.287 23.946 11.781 17.113z"/>
+            <path fill="#FFD300" d="M6.55 18.18c-.214-.96-.427-8.114 1.068-11.85 1.28-3.31 3.95-5.98 7.046-6.3 1.602-.107 3.523.107 5.338 1.708 1.922 1.495 2.456 3.097 2.67 4.698.427 3.203-1.709 6.3-4.591 8.221-3.31 2.242-11.104 3.63-11.317 3.63-.107 0-.214 0-.214-.107z"/>
+            <circle cx="15.732" cy="7.29" r="3.63" fill="#231F20"/>
+            <path fill="#FFF" d="M15.732 9.326c1.1 0 1.993-.892 1.993-1.993s-.892-1.994-1.993-1.994-1.993.893-1.993 1.994c0 1.1.892 1.993 1.993 1.993z"/>
+          </g>
+          <path fill="#231F20" d="M35.483 20.316c-2.135 0-4.164-.748-5.765-1.709l1.068-2.776c1.494.961 3.203 1.602 4.804 1.602 2.135 0 2.99-1.068 2.99-2.135 0-1.175-.641-1.922-3.844-3.097-3.417-1.28-4.591-2.882-4.591-5.018 0-2.669 2.135-5.124 5.872-5.124 1.922 0 3.737.534 4.911 1.174l-.96 2.776c-1.068-.534-2.563-1.174-3.95-1.174-1.816 0-2.67 1.067-2.67 2.242 0 1.174.96 1.815 3.416 2.776 3.95 1.494 5.018 3.096 5.018 5.445.107 3.096-2.348 5.018-6.299 5.018zM51.284 14.87v5.125h-3.096V2.38h5.445c4.698 0 7.047 2.562 7.047 6.3 0 3.736-2.35 6.298-7.687 6.298h-1.709v-.106zm0-9.608v6.94h2.029c2.883 0 3.95-1.602 3.95-3.524s-.96-3.416-3.95-3.416h-2.029zM66.445 2.379h3.096v10.356c0 3.417 1.495 4.805 4.164 4.805 2.67 0 4.27-1.388 4.27-4.805V2.38h3.097v10.356c0 5.232-2.99 7.58-7.367 7.58s-7.26-2.348-7.26-7.58V2.38zM86.41 2.379L101.25 2.379 101.25 5.262 95.485 5.262 95.485 19.995 92.389 19.995 92.389 5.262 86.517 5.262 86.517 2.379zM106.589 2.272L107.55 2.272 118.44 13.589 118.44 2.379 121.536 2.379 121.536 20.102 120.682 20.102 109.685 9.105 109.685 20.102 106.589 20.102 106.589 2.272zM129.223 2.379L132.319 2.379 132.319 19.995 129.223 19.995zM140.006 2.379L143.102 2.379 143.102 11.027 150.576 2.379 154.312 2.379 146.198 11.668 154.74 19.995 150.896 19.995 143.102 12.415 143.102 19.995 140.006 19.995z"/>
+        </g></g></g>
+      </svg>
+    </a>
+    <nav class="header-nav">
+      <a href="#overview">Обзор</a>
+      <a href="#verticals">Вертикали</a>
+      <a href="#summary">Сводная таблица</a>
+      <a href="#recs">Рекомендации</a>
+    </nav>
+  </div>
+</header>
+
+<!-- TOC -->
+<nav class="toc">
+  <div class="toc-inner">
+    <a href="#v1">1. OTA</a>
+    <a href="#v2">2. Банки</a>
+    <a href="#v3">3. Транспорт</a>
+    <a href="#v4">4. Телеком</a>
+    <a href="#v5">5. Отели</a>
+    <a href="#v6">6. Маркетплейсы</a>
+    <a href="#v7">7. Страховые</a>
+    <a href="#v8">8. Каршеринг</a>
+    <a href="#v9">9. Корпоративный</a>
+    <a href="#v10">10. Образование</a>
+    <a href="#v11">11. Медиа</a>
+    <a href="#v12">12. Рестораны</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="overview">
+  <h1>Стратегия партнёрств Спутник8</h1>
+  <p>Приоритизированный анализ 12 вертикалей для привлечения клиентов через партнёрские интеграции на рынке РФ и СНГ</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="num">12</div>
+      <div class="label">вертикалей</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">40+</div>
+      <div class="label">механик</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">30+</div>
+      <div class="label">референсов</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">311 млрд</div>
+      <div class="label">рынок экскурсий РФ, руб.</div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+
+  <!-- SUMMARY TABLE -->
+  <section class="section" id="summary">
+    <h2 class="section-title">Сводная таблица</h2>
+    <p class="section-subtitle">Топ-механика и ключевой референс для каждой вертикали</p>
+
+    <div class="summary-table-wrap">
+      <table class="summary-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Вертикаль</th>
+            <th>Приоритет</th>
+            <th>Топ-1 механика</th>
+            <th>Ключевой референс</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>OTA и билетные сервисы</td><td class="priority-max">Максимальный</td><td>API-витрина "Чем заняться" в post-booking</td><td>GetYourGuide + EasyJet / KLM</td></tr>
+          <tr><td>2</td><td>Банки и финтех</td><td class="priority-vhigh">Очень высокий</td><td>White-label витрина в суперприложении</td><td>Т-Банк + Tripster (работает)</td></tr>
+          <tr><td>3</td><td>Транспортные компании</td><td class="priority-high">Высокий</td><td>Email/push после покупки билета</td><td>S7 Priority + экскурсии за мили</td></tr>
+          <tr><td>4</td><td>Телеком-операторы</td><td class="priority-high">Высокий</td><td>Витрина в travel-разделе приложения</td><td>МТС Travel white-label модуль</td></tr>
+          <tr><td>5</td><td>Отели и аренда жилья</td><td class="priority-high">Высокий</td><td>Консьерж-виджет в confirmation-email</td><td>Booking.com "Things to Do"</td></tr>
+          <tr><td>6</td><td>Маркетплейсы</td><td class="priority-high">Средне-высокий</td><td>Экскурсии как категория в travel-разделе</td><td>Klook + Fareportal</td></tr>
+          <tr><td>7</td><td>Страховые компании</td><td class="priority-mid">Средний</td><td>Промокод в email подтверждения полиса</td><td>Travelpayouts экосистема</td></tr>
+          <tr><td>8</td><td>Каршеринг и такси</td><td class="priority-mid">Средний</td><td>Совместные маршруты выходного дня</td><td>Яндекс Go + Путешествия</td></tr>
+          <tr><td>9</td><td>Корпоративный сегмент</td><td class="priority-mid">Средний</td><td>Интеграция в кафетерий льгот</td><td>Promotivation платформа</td></tr>
+          <tr><td>10</td><td>Образование</td><td class="priority-low">Ниже среднего</td><td>Раздел для школьных групп</td><td>Школьные туры — устоявшийся рынок</td></tr>
+          <tr><td>11</td><td>Медиа и блогеры</td><td class="priority-low">Ниже среднего</td><td>Партнёрка через Travelpayouts</td><td>Tripster — 10% комиссия</td></tr>
+          <tr><td>12</td><td>Рестораны и фуд</td><td class="priority-low">Низкий</td><td>Гастро-экскурсии с ресторанами</td><td>Гастро-туры — тренд 2025–2026</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- VERTICALS -->
+  <section class="section" id="verticals">
+    <h2 class="section-title">Детальный анализ вертикалей</h2>
+    <p class="section-subtitle">Механики, обоснования и референсы для каждого направления</p>
+
+    <!-- 1. OTA -->
+    <div class="vertical-card" id="v1">
+      <div class="vc-header">
+        <div class="vc-number p-max">1</div>
+        <div class="vc-title-block">
+          <div class="vc-title">OTA и сервисы бронирования</div>
+          <div class="vc-companies">Aviasales, Tutu.ru, Ostrovok, Sutochno.ru, Купибилет, OneTwoTrip</div>
+        </div>
+        <div class="vc-priority-badge"><span class="badge badge-max">Максимальный</span></div>
+      </div>
+      <div class="vc-body">
+        <div class="vc-why">
+          <div class="vc-why-title">Зачем им Спутник8</div>
+          <ul>
+            <li>Увеличение ARPU за счёт допродажи экскурсий к уже купленным билетам/отелям</li>
+            <li>Рост LTV — пользователь получает "всё в одном месте" и возвращается</li>
+            <li>Дополнительный доход с комиссии без затрат на создание собственного продукта</li>
+          </ul>
+        </div>
+
+        <div class="mech-title">Приоритизированные механики</div>
+        <div class="mech-table-wrap">
+          <table class="mech-table">
+            <thead><tr><th>#</th><th>Механика</th><th>Обоснование</th><th>Сложность</th></tr></thead>
+            <tbody>
+              <tr><td class="mech-num">1</td><td><strong>API-витрина "Чем заняться в [городе]"</strong> на странице подтверждения бронирования</td><td>Самая высокая конверсия: пользователь уже купил билет, экскурсия — естественный next step. Aviasales уже имеет раздел "Гиды" — можно заменить/дополнить</td><td class="complexity-mid">Средняя</td></tr>
+              <tr><td class="mech-num">2</td><td><strong>Email-триггеры</strong> — "Топ-5 экскурсий в Казани" через 1–2 дня после покупки билета</td><td>Высокий open rate (контекстное письмо), низкая стоимость — нужен только шаблон + deeplink</td><td class="complexity-low">Низкая</td></tr>
+              <tr><td class="mech-num">3</td><td><strong>Push-уведомления</strong> в приложении за 3–7 дней до поездки</td><td>Мобильный канал с высокой видимостью, работает на "последнюю милю"</td><td class="complexity-low">Низкая</td></tr>
+              <tr><td class="mech-num">4</td><td><strong>Кобрендинговый лендинг</strong> — "Экскурсии для путешественников [бренд]"</td><td>SEO-эффект + доверие через бренд партнёра, но долгий цикл согласования</td><td class="complexity-low">Низкая</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="ref-title">Референсы и активации</div>
+        <div class="ref-list">
+          <div class="ref-item">
+            <div class="ref-icon">&#9992;</div>
+            <div class="ref-content">
+              <div class="ref-name">GetYourGuide + EasyJet / KLM (2017)</div>
+              <div class="ref-desc">GetYourGuide интегрировал виджет бронирования экскурсий в post-booking flow авиакомпаний EasyJet и KLM. Клиенты бронировали туры сразу после покупки авиабилета через встроенный модуль.</div>
+            </div>
+          </div>
+          <div class="ref-item">
+            <div class="ref-icon">&#9992;</div>
+            <div class="ref-content">
+              <div class="ref-name">Viator + Air France / IHG</div>
+              <div class="ref-desc">Viator (TripAdvisor) заключил партнёрства с Air France и сетью InterContinental Hotels Group, предоставив витрину "Things to Do" в post-booking коммуникациях.</div>
+            </div>
+          </div>
+          <div class="ref-item">
+            <div class="ref-icon">&#128269;</div>
+            <div class="ref-content">
+              <div class="ref-name">Aviasales "Гиды" (aviasales.ru/guides)</div>
+              <div class="ref-desc">Aviasales уже встроил раздел экскурсий в свою платформу. Спутник8 может предложить себя как поставщика контента для этого раздела.</div>
+            </div>
+          </div>
+          <div class="ref-item">
+            <div class="ref-icon">&#128296;</div>
+            <div class="ref-content">
+              <div class="ref-name">Tripster — виджет и API для партнёров</div>
+              <div class="ref-desc">Готовый виджет (одна строка кода), API с real-time данными и WhiteLabel. Виджет автоматически определяет контент страницы и предлагает релевантные экскурсии.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Банки -->
+    <div class="vertical-card" id="v2">
+      <div class="vc-header">
+        <div class="vc-number p-vhigh">2</div>
+        <div class="vc-title-block">
+          <div class="vc-title">Банки и финтех</div>
+          <div class="vc-companies">Т-Банк (Тинькофф Путешествия), СберПутешествия, Альфа-Банк, ВТБ, Газпромбанк</div>
+        </div>
+        <div class="vc-priority-badge"><span class="badge badge-vhigh">Очень высокий</span></div>
+      </div>
+      <div class="vc-body">
+        <div class="vc-why">
+          <div class="vc-why-title">Зачем им Спутник8</div>
+          <ul>
+            <li>Обогащение travel-экосистемы банка (билеты + отели + экскурсии = полный цикл путешествия)</li>
+            <li>Повышение ценности премиальных карт и программ лояльности</li>
+            <li>Дополнительная монетизация через кэшбэк-офферы — банк зарабатывает на interchange + партнёрке</li>
+          </ul>
+        </div>
+
+        <div class="mech-title">Приоритизированные механики</div>
+        <div class="mech-table-wrap">
+          <table class="mech-table">
+            <thead><tr><th>#</th><th>Механика</th><th>Обоснование</th><th>Сложность</th></tr></thead>
+            <tbody>
+              <tr><td class="mech-num">1</td><td><strong>Витрина экскурсий в travel-разделе суперприложения</strong> (white-label через API)</td><td>Прямой доступ к миллионам пользователей с travel-intent. Т-Банк и Сбер уже имеют travel-разделы</td><td class="complexity-high">Средняя–Высокая</td></tr>
+              <tr><td class="mech-num">2</td><td><strong>Повышенный кэшбэк 5–10%</strong> за экскурсии при оплате картой банка</td><td>Проверенная механика. Не требует технической интеграции — только маркетинговое соглашение</td><td class="complexity-low">Низкая</td></tr>
+              <tr><td class="mech-num">3</td><td><strong>Спецпредложения для премиальных клиентов</strong> — эксклюзивные экскурсии, early access, скидка 15–20%</td><td>Повышает perceived value премиум-карт без значительных затрат банка</td><td class="complexity-low">Низкая</td></tr>
+              <tr><td class="mech-num">4</td><td><strong>Начисление миль/баллов</strong> программы лояльности за покупку экскурсий</td><td>Глубокая интеграция, требует техсвязки систем лояльности</td><td class="complexity-high">Высокая</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="ref-title">Референсы и активации</div>
+        <div class="ref-list">
+          <div class="ref-item">
+            <div class="ref-icon">&#128179;</div>
+            <div class="ref-content">
+              <div class="ref-name">Т-Банк + Tripster</div>
+              <div class="ref-desc">Т-Банк интегрировал Tripster в раздел "Путешествия". Пользователи бронируют экскурсии в 700+ городах прямо в приложении и получают 5% кэшбэк. Прямой прецедент — Спутник8 может стать альтернативным/дополнительным поставщиком.</div>
+            </div>
+          </div>
+          <div class="ref-item">
+            <div class="ref-icon">&#128179;</div>
+            <div class="ref-content">
+              <div class="ref-name">СберПутешествия — окно возможностей</div>
+              <div class="ref-desc">Развивает travel-экосистему (билеты, отели, туры), но раздел экскурсий ещё не так развит как у Т-Банка — окно возможностей для Спутник8.</div>
+            </div>
+          </div>
+          <div class="ref-item">
+            <div class="ref-icon">&#128296;</div>
+            <div class="ref-content">
+              <div class="ref-name">МТС Travel — white-label модуль</div>
+              <div class="ref-desc">МТС Travel предоставлял регионам бесплатный модуль бронирования отелей с платёжным виджетом. Аналогичную модель Спутник8 может предложить банкам.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Транспорт -->
+    <div class="vertical-card" id="v3">
+      <div class="vc-header">
+        <div class="vc-number p-high">3</div>
+        <div class="vc-title-block">
+          <div class="vc-title">Транспортные компании</div>
+          <div class="vc-companies">РЖД, "Победа", S7 Airlines, Ural Airlines, BlaBlaCar</div>
+        </div>
+        <div class="vc-priority-badge"><span class="badge badge-high">Высокий</span></div>
+      </div>
+      <div class="vc-body">
+        <div class="vc-why">
+          <div class="vc-why-title">Зачем им Спутник8</div>
+          <ul>
+            <li>Монетизация пассажиропотока без каннибализации основного бизнеса</li>
+            <li>Повышение ценности программ лояльности (РЖД Бонус, S7 Priority)</li>
+            <li>Стимулирование спроса на направления (больше экскурсий = больше поездок)</li>
+          </ul>
+        </div>
+
+        <div class="mech-title">Приоритизированные механики</div>
+        <div class="mech-table-wrap">
+          <table class="mech-table">
+            <thead><tr><th>#</th><th>Механика</th><th>Обоснование</th><th>Сложность</th></tr></thead>
+            <tbody>
+              <tr><td class="mech-num">1</td><td><strong>Кросс-промо в post-purchase flow</strong> — email/push с экскурсиями после покупки билета</td><td>Максимальный intent: пользователь точно едет в конкретный город</td><td class="complexity-low">Низкая</td></tr>
+              <tr><td class="mech-num">2</td><td><strong>Интеграция в программу лояльности</strong> — начисление/списание баллов S7 Priority или РЖД Бонус</td><td>Повышает ценность программы лояльности; доступ к премиум-аудитории</td><td class="complexity-high">Средняя–Высокая</td></tr>
+              <tr><td class="mech-num">3</td><td><strong>Бандл "билет + экскурсия"</strong> со скидкой 10–15%</td><td>Увеличивает конверсию и средний чек на этапе оформления</td><td class="complexity-mid">Средняя</td></tr>
+              <tr><td class="mech-num">4</td><td><strong>QR-код в вагоне / на посадочном / в бортовом журнале</strong></td><td>Offline touchpoint в момент travel-intent. Минимальные затраты</td><td class="complexity-low">Низкая</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="ref-title">Референсы и активации</div>
+        <div class="ref-list">
+          <div class="ref-item">
+            <div class="ref-icon">&#9992;</div>
+            <div class="ref-content">
+              <div class="ref-name">S7 Priority + экскурсии за мили</div>
+              <div class="ref-desc">В программе S7 Priority клиенты бронируют экскурсии у партнёров и получают 2 мили за каждые 20 рублей. Модель начисления миль за экскурсии уже обкатана.</div>
+            </div>
+          </div>
+          <div class="ref-item">
+            <div class="ref-icon">&#9992;</div>
+            <div class="ref-content">
+              <div class="ref-name">EasyJet + GetYourGuide</div>
+              <div class="ref-desc">Европейский лоукостер EasyJet встроил GetYourGuide в booking flow — после покупки билета предлагаются экскурсии. Модель напрямую транслируется на "Победу" и другие российские лоукостеры.</div>
+            </div>
+          </div>
+          <div class="ref-item">
+            <div class="ref-icon">&#128645;</div>
+            <div class="ref-content">
+              <div class="ref-name">РЖД — мультимодальные сервисы</div>
+              <div class="ref-desc">РЖД активно развивает экосистему вокруг перевозок (отели, такси, страховка). Экскурсии — логичное дополнение к "Сапсану" на маршрутах Москва–Питер, Москва–Казань.</div>
+            </div>
+          </div>
+          <div class="ref-item">
+            <div class="ref-icon">&#127915;</div>
+            <div class="ref-content">
+              <div class="ref-name">Кейс "Туры в 15:15" + авиакомпания</div>
+              <div class="ref-desc">Российский стартап экскурсий заработал на партнёрстве с авиакомпанией, используя базу эмигрантов и конкурсы в Instagram для привлечения к совместному продукту.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Телеком -->
+    <div class="vertical-card" id="v4">
+      <div class="vc-header">
+        <div class="vc-number p-high">4</div>
+        <div class="vc-title-block">
+          <div class="vc-title">Телеком-операторы</div>
+          <div class="vc-companies">МТС (МТС Travel), Мегафон, Билайн, Tele2</div>
+        </div>
+        <div class="vc-priority-badge"><span class="badge badge-high">Высокий</span></div>
+      </div>
+      <div class="vc-body">
+        <div class="vc-why">
+          <div class="vc-why-title">Зачем им Спутник8</div>
+          <ul>
+            <li>Расширение lifestyle-экосистемы (тренд суперприложений)</li>
+            <li>Снижение оттока через дополнительную ценность подписки</li>
+            <li>Монетизация абонентской базы (десятки миллионов пользователей)</li>
+          </ul>
+        </div>
+
+        <div class="mech-title">Приоритизированные механики</div>
+        <div class="mech-table-wrap">
+          <table class="mech-table">
+            <thead><tr><th>#</th><th>Механика</th><th>Обоснование</th><th>Сложность</th></tr></thead>
+            <tbody>
+              <tr><td class="mech-num">1</td><td><strong>Витрина экскурсий в travel-разделе приложения</strong></td><td>МТС Travel уже имеет travel-раздел с отелями — экскурсии дополняют линейку</td><td class="complexity-mid">Средняя</td></tr>
+              <tr><td class="mech-num">2</td><td><strong>Кэшбэк баллами оператора</strong> за бронирование</td><td>Проверенная модель — МТС уже даёт до 5% кэшбэка за отели</td><td class="complexity-low">Низкая</td></tr>
+              <tr><td class="mech-num">3</td><td><strong>Geo-push при перемещении</strong> — "Вы в Сочи! Топ-экскурсии"</td><td>Уникальное преимущество телеком — знание гео пользователя в реальном времени</td><td class="complexity-mid">Средняя</td></tr>
+              <tr><td class="mech-num">4</td><td><strong>Скидки для премиум-тарифов</strong></td><td>Повышает ценность высоких тарифов, стимулирует апгрейд</td><td class="complexity-low">Низкая</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="ref-title">Референсы и активации</div>
+        <div class="ref-list">
+          <div class="ref-item">
+            <div class="ref-icon">&#128241;</div>
+            <div class="ref-content">
+              <div class="ref-name">МТС Travel — white-label + свёртывание инвестиций</div>
+              <div class="ref-desc">МТС Travel предоставлял регионам модуль бронирования отелей с виджетом. В 2025 МТС свернул инвестиции в travel — модель с внешним поставщиком (Спутник8) может быть привлекательнее собственной разработки.</div>
+            </div>
+          </div>
+          <div class="ref-item">
+            <div class="ref-icon">&#9917;</div>
+            <div class="ref-content">
+              <div class="ref-name">МТС Travel + ФК "Спартак"</div>
+              <div class="ref-desc">Персональная экскурсия по стадиону, знакомство с игроками, показ travel-истории на экране стадиона. Пример нестандартной активации travel-бренда через спортивные партнёрства.</div>
+            </div>
+          </div>
+          <div class="ref-item">
+            <div class="ref-icon">&#128241;</div>
+            <div class="ref-content">
+              <div class="ref-name">Tele2 — бонусы за travel</div>
+              <div class="ref-desc">Tele2 первым запустил поиск билетов и начисление бонусов внутри лояльности оператора. Модель расширяема на экскурсии.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Отели -->
+    <div class="vertical-card" id="v5">
+      <div class="vc-header">
+        <div class="vc-number p-high">5</div>
+        <div class="vc-title-block">
+          <div class="vc-title">Отели и аренда жилья</div>
+          <div class="vc-companies">Суточно.ру, Tvil.ru, Авито, Cosmos, Azimut, Marriott</div>
+        </div>
+        <div class="vc-priority-badge"><span class="badge badge-high">Высокий</span></div>
+      </div>
+      <div class="vc-body">
+        <div class="vc-why">
+          <div class="vc-why-title">Зачем им Спутник8</div>
+          <ul>
+            <li>Повышение привлекательности объекта ("забронируйте экскурсии прямо у нас")</li>
+            <li>Дополнительный доход для хозяев/отелей без усилий (комиссия 8–10%)</li>
+            <li>Улучшение гостевого опыта &rarr; лучшие отзывы &rarr; больше бронирований</li>
+          </ul>
+        </div>
+
+        <div class="mech-title">Приоритизированные механики</div>
+        <div class="mech-table-wrap">
+          <table class="mech-table">
+            <thead><tr><th>#</th><th>Механика</th><th>Обоснование</th><th>Сложность</th></tr></thead>
+            <tbody>
+              <tr><td class="mech-num">1</td><td><strong>Консьерж-виджет в confirmation-email</strong> — "Экскурсии рядом с вашим отелем"</td><td>Вставка виджета в уже существующие email-потоки. Высокая контекстная релевантность</td><td class="complexity-low">Низкая</td></tr>
+              <tr><td class="mech-num">2</td><td><strong>QR-код в номере/лобби/ресепшн</strong></td><td>Offline touchpoint, гость уже на месте — максимальная готовность. Минимальные затраты</td><td class="complexity-low">Низкая</td></tr>
+              <tr><td class="mech-num">3</td><td><strong>White-label витрина для сетей отелей</strong></td><td>Для крупных сетей — повышает ценность бренда, даёт контроль над UX</td><td class="complexity-high">Средняя–Высокая</td></tr>
+              <tr><td class="mech-num">4</td><td><strong>Партнёрская ссылка для хозяев</strong> на Суточно/Авито</td><td>Масштабируемая механика для P2P: мотивация хозяев = виральное распространение</td><td class="complexity-low">Низкая</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="ref-title">Референсы и активации</div>
+        <div class="ref-list">
+          <div class="ref-item">
+            <div class="ref-icon">&#127968;</div>
+            <div class="ref-content">
+              <div class="ref-name">Booking.com "Things to Do"</div>
+              <div class="ref-desc">Booking.com развивает раздел "Attractions" — экскурсии и активности предлагаются гостям после бронирования отеля. Спутник8 может воспроизвести модель для российских сервисов.</div>
+            </div>
+          </div>
+          <div class="ref-item">
+            <div class="ref-icon">&#127968;</div>
+            <div class="ref-content">
+              <div class="ref-name">Ostrovok GURU + допродажи</div>
+              <div class="ref-desc">Ostrovok развивает программу лояльности GURU. Отельный бизнес использует 3 подхода: upsell, cross-sell (экскурсии, трансферы) и add-on.</div>
+            </div>
+          </div>
+          <div class="ref-item">
+            <div class="ref-icon">&#128296;</div>
+            <div class="ref-content">
+              <div class="ref-name">GetYourGuide — автоматический виджет для отелей</div>
+              <div class="ref-desc">Автоматический виджет подбирает популярные туры по геокоординатам или городу. Минимальные усилия на внедрение — подходит для сетей.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Маркетплейсы -->
+    <div class="vertical-card" id="v6">
+      <div class="vc-header">
+        <div class="vc-number p-high">6</div>
+        <div class="vc-title-block">
+          <div class="vc-title">Маркетплейсы и e-commerce</div>
+          <div class="vc-companies">Ozon Travel, Яндекс Путешествия, Wildberries Travel</div>
+        </div>
+        <div class="vc-priority-badge"><span class="badge badge-high">Средне-высокий</span></div>
+      </div>
+      <div class="vc-body">
+        <div class="vc-why">
+          <div class="vc-why-title">Зачем им Спутник8</div>
+          <ul>
+            <li>Расширение ассортимента travel-вертикали (билеты/отели есть, экскурсий нет)</li>
+            <li>Дополнительная выручка с огромной существующей аудитории</li>
+            <li>Удержание пользователя в экосистеме ("всё в одном приложении")</li>
+          </ul>
+        </div>
+
+        <div class="mech-title">Приоритизированные механики</div>
+        <div class="mech-table-wrap">
+          <table class="mech-table">
+            <thead><tr><th>#</th><th>Механика</th><th>Обоснование</th><th>Сложность</th></tr></thead>
+            <tbody>
+              <tr><td class="mech-num">1</td><td><strong>Экскурсии как категория в travel-разделе</strong> (витрина через API)</td><td>Ozon Travel уже продаёт туры, билеты, страховки — экскурсии дополняют каталог</td><td class="complexity-mid">Средняя</td></tr>
+              <tr><td class="mech-num">2</td><td><strong>Баллы и кэшбэк</strong> внутри Ozon Premium / Яндекс Плюс</td><td>Огромная мотивированная аудитория подписчиков</td><td class="complexity-mid">Средняя</td></tr>
+              <tr><td class="mech-num">3</td><td><strong>Рекомендательные алгоритмы</strong> — предлагать экскурсии покупателям travel-товаров</td><td>Уникальные данные о покупках для таргетинга</td><td class="complexity-high">Высокая</td></tr>
+              <tr><td class="mech-num">4</td><td><strong>Кросс-категорийные бандлы</strong> — "Чемодан + экскурсия"</td><td>Нестандартный промо-формат, привлекает внимание</td><td class="complexity-low">Низкая</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="ref-title">Референсы и активации</div>
+        <div class="ref-list">
+          <div class="ref-item">
+            <div class="ref-icon">&#128722;</div>
+            <div class="ref-content">
+              <div class="ref-name">Ozon Travel — расширение каталога</div>
+              <div class="ref-desc">Ozon Travel продаёт турпакеты, страховки, авиа- и ж/д-билеты, аренду авто. Акция (2025–2026): скидка 1000 руб. на бронирование отеля — аналогичные промо можно запустить для экскурсий.</div>
+            </div>
+          </div>
+          <div class="ref-item">
+            <div class="ref-icon">&#128722;</div>
+            <div class="ref-content">
+              <div class="ref-name">Klook + Fareportal (CheapOair)</div>
+              <div class="ref-desc">Klook и Fareportal объединились: пользователи Fareportal получают предложения Klook по активностям после покупки билетов. Модель "маркетплейс + экскурсионный агрегатор" работает.</div>
+            </div>
+          </div>
+          <div class="ref-item">
+            <div class="ref-icon">&#128269;</div>
+            <div class="ref-content">
+              <div class="ref-name">Яндекс Путешествия + экосистема Плюс</div>
+              <div class="ref-desc">Яндекс активно развивает экосистему (Плюс, Драйв, Go). Экскурсии могут стать частью "связки" сервисов с единым кэшбэком через Яндекс Плюс.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Страховые -->
+    <div class="vertical-card" id="v7">
+      <div class="vc-header">
+        <div class="vc-number p-mid">7</div>
+        <div class="vc-title-block">
+          <div class="vc-title">Страховые компании</div>
+          <div class="vc-companies">Ингосстрах, АльфаСтрахование, Ренессанс, Тинькофф Страхование, Cherehapa</div>
+        </div>
+        <div class="vc-priority-badge"><span class="badge badge-mid">Средний</span></div>
+      </div>
+      <div class="vc-body">
+        <div class="vc-why">
+          <div class="vc-why-title">Зачем им Спутник8</div>
+          <ul>
+            <li>Кросс-продажа: покупатель страховки = подтверждённый путешественник</li>
+            <li>Повышение конверсии в покупку страховки (скидка на экскурсию как бонус)</li>
+          </ul>
+        </div>
+
+        <div class="mech-title">Приоритизированные механики</div>
+        <div class="mech-table-wrap">
+          <table class="mech-table">
+            <thead><tr><th>#</th><th>Механика</th><th>Обоснование</th><th>Сложность</th></tr></thead>
+            <tbody>
+              <tr><td class="mech-num">1</td><td><strong>Промокод на экскурсию</strong> в email-подтверждении покупки полиса</td><td>Максимально простая интеграция. Клиент подтвердил поездку — высокая релевантность</td><td class="complexity-low">Низкая</td></tr>
+              <tr><td class="mech-num">2</td><td><strong>Бандл "страховка + экскурсия"</strong> со скидкой</td><td>Увеличивает конверсию обоих продуктов</td><td class="complexity-low">Низкая</td></tr>
+              <tr><td class="mech-num">3</td><td><strong>Взаимные рекомендации</strong> — Спутник8 предлагает страховку, страховая предлагает экскурсии</td><td>Двусторонняя ценность для обоих партнёров</td><td class="complexity-low">Низкая</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="ref-title">Референсы и активации</div>
+        <div class="ref-list">
+          <div class="ref-item">
+            <div class="ref-icon">&#128737;</div>
+            <div class="ref-content">
+              <div class="ref-name">Travelpayouts — travel-экосистема</div>
+              <div class="ref-desc">Travelpayouts расширился от авиабилетов до сети: визы, экскурсии (Tripster), трансферы (KiwiTaxi), страхование. Страховые уже в экосистеме — кросс-промо несложно.</div>
+            </div>
+          </div>
+          <div class="ref-item">
+            <div class="ref-icon">&#128737;</div>
+            <div class="ref-content">
+              <div class="ref-name">Level.Travel + бандлы с допуслугами</div>
+              <div class="ref-desc">Level.Travel включает страховку в турпакеты и работает с партнёрами по кросс-промо. Модель "бандл с допуслугами" уже работает в travel.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. Каршеринг -->
+    <div class="vertical-card" id="v8">
+      <div class="vc-header">
+        <div class="vc-number p-mid">8</div>
+        <div class="vc-title-block">
+          <div class="vc-title">Каршеринг, аренда авто, такси</div>
+          <div class="vc-companies">Яндекс.Драйв, Делимобиль, BelkaCar, Localrent, Яндекс Go</div>
+        </div>
+        <div class="vc-priority-badge"><span class="badge badge-mid">Средний</span></div>
+      </div>
+      <div class="vc-body">
+        <div class="vc-why">
+          <div class="vc-why-title">Зачем им Спутник8</div>
+          <ul>
+            <li>Экскурсия = повод взять машину (загородные экскурсии)</li>
+            <li>Контент-маркетинг: маршруты выходного дня повышают engagement</li>
+            <li>Рост среднего чека за поездку</li>
+          </ul>
+        </div>
+
+        <div class="mech-title">Приоритизированные механики</div>
+        <div class="mech-table-wrap">
+          <table class="mech-table">
+            <thead><tr><th>#</th><th>Механика</th><th>Обоснование</th><th>Сложность</th></tr></thead>
+            <tbody>
+              <tr><td class="mech-num">1</td><td><strong>Совместные маршруты</strong> "Возьми машину + экскурсия за город"</td><td>Контент-механика с виральным потенциалом. Особенно актуально для загородных экскурсий</td><td class="complexity-low">Низкая</td></tr>
+              <tr><td class="mech-num">2</td><td><strong>Кросс-промокоды</strong> — скидка на каршеринг при покупке экскурсии и наоборот</td><td>Простой обмен трафиком без технической интеграции</td><td class="complexity-low">Низкая</td></tr>
+              <tr><td class="mech-num">3</td><td><strong>Раздел "Куда поехать"</strong> в приложении каршеринга</td><td>Повышает engagement, стимулирует долгосрочные аренды</td><td class="complexity-mid">Средняя</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="ref-title">Референсы и активации</div>
+        <div class="ref-list">
+          <div class="ref-item">
+            <div class="ref-icon">&#128663;</div>
+            <div class="ref-content">
+              <div class="ref-name">Яндекс Go + экосистема</div>
+              <div class="ref-desc">Яндекс Go интегрирован с Яндекс Путешествиями. Экскурсия + трансфер до точки сбора — логичный бандл внутри экосистемы.</div>
+            </div>
+          </div>
+          <div class="ref-item">
+            <div class="ref-icon">&#128663;</div>
+            <div class="ref-content">
+              <div class="ref-name">Делимобиль — маршруты выходного дня</div>
+              <div class="ref-desc">Каршеринги публикуют маршруты для поездок за город. Совместный контент с экскурсионным сервисом — естественное расширение.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. Корпоративный -->
+    <div class="vertical-card" id="v9">
+      <div class="vc-header">
+        <div class="vc-number p-mid">9</div>
+        <div class="vc-title-block">
+          <div class="vc-title">Корпоративный сегмент</div>
+          <div class="vc-companies">Promotivation, Benefactory, JOY, Komanda.Travel, event-агентства</div>
+        </div>
+        <div class="vc-priority-badge"><span class="badge badge-mid">Средний</span></div>
+      </div>
+      <div class="vc-body">
+        <div class="vc-why">
+          <div class="vc-why-title">Зачем им Спутник8</div>
+          <ul>
+            <li>Готовый каталог активностей для тимбилдинга и корпоративов</li>
+            <li>Экскурсии решают задачу well-being и нематериальной мотивации</li>
+            <li>Высокий средний чек (групповые бронирования)</li>
+          </ul>
+        </div>
+
+        <div class="mech-title">Приоритизированные механики</div>
+        <div class="mech-table-wrap">
+          <table class="mech-table">
+            <thead><tr><th>#</th><th>Механика</th><th>Обоснование</th><th>Сложность</th></tr></thead>
+            <tbody>
+              <tr><td class="mech-num">1</td><td><strong>Интеграция в кафетерий льгот</strong> — сотрудник тратит баллы на экскурсии</td><td>Масштабируемая B2B-модель. Promotivation уже имеет категории "спорт", "здоровье"</td><td class="complexity-mid">Средняя</td></tr>
+              <tr><td class="mech-num">2</td><td><strong>Подарочные сертификаты</strong> для корпоративных подарков</td><td>Простой продукт для B2B: массовые закупки к праздникам</td><td class="complexity-low">Низкая</td></tr>
+              <tr><td class="mech-num">3</td><td><strong>B2B-тариф</strong> — корп. цены, групповые бронирования, закрывающие документы</td><td>Снимает главный барьер — бюрократию и документооборот</td><td class="complexity-mid">Средняя</td></tr>
+              <tr><td class="mech-num">4</td><td><strong>Кастомные корпоративные экскурсии</strong></td><td>Высокий чек, но требует ручного менеджмента</td><td class="complexity-high">Высокая</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="ref-title">Референсы и активации</div>
+        <div class="ref-list">
+          <div class="ref-item">
+            <div class="ref-icon">&#127970;</div>
+            <div class="ref-content">
+              <div class="ref-name">Promotivation — кафетерий льгот</div>
+              <div class="ref-desc">Платформа автоматизации кафетерия льгот. Единые бенефитные карты с категориями: спорт, здоровье, транспорт, обучение. "Экскурсии/досуг" — готовая новая категория.</div>
+            </div>
+          </div>
+          <div class="ref-item">
+            <div class="ref-icon">&#127970;</div>
+            <div class="ref-content">
+              <div class="ref-name">Komanda.Travel — корпоративные экскурсии</div>
+              <div class="ref-desc">Специализированная платформа с фокусом на индустриальный туризм. HR-присутствие на экскурсии повышает результативность в 2–3 раза.</div>
+            </div>
+          </div>
+          <div class="ref-item">
+            <div class="ref-icon">&#127970;</div>
+            <div class="ref-content">
+              <div class="ref-name">"Большая Страна" — корпоративные туры</div>
+              <div class="ref-desc">Организатор корп. туров по России: тимбилдинг, MICE, поощрительные поездки. Спутник8 может стать поставщиком активностей для таких операторов.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10. Образование -->
+    <div class="vertical-card" id="v10">
+      <div class="vc-header">
+        <div class="vc-number p-low">10</div>
+        <div class="vc-title-block">
+          <div class="vc-title">Образование и EdTech</div>
+          <div class="vc-companies">Школы, вузы, детские лагеря, Skillbox, Яндекс Практикум</div>
+        </div>
+        <div class="vc-priority-badge"><span class="badge badge-low">Ниже среднего</span></div>
+      </div>
+      <div class="vc-body">
+        <div class="vc-why">
+          <div class="vc-why-title">Зачем им Спутник8</div>
+          <ul>
+            <li>Готовый каталог образовательных экскурсий для школьных групп</li>
+            <li>Экскурсия как бонус/мотиватор для студентов EdTech-платформ</li>
+            <li>Профориентационные и культурные программы</li>
+          </ul>
+        </div>
+
+        <div class="mech-title">Приоритизированные механики</div>
+        <div class="mech-table-wrap">
+          <table class="mech-table">
+            <thead><tr><th>#</th><th>Механика</th><th>Обоснование</th><th>Сложность</th></tr></thead>
+            <tbody>
+              <tr><td class="mech-num">1</td><td><strong>Раздел "Экскурсии для школьных групп"</strong> с фильтрацией по возрасту</td><td>Высокий спрос, устоявшийся рынок, но требует адаптации каталога</td><td class="complexity-mid">Средняя</td></tr>
+              <tr><td class="mech-num">2</td><td><strong>Партнёрство с EdTech</strong> — экскурсия как бонус за курс</td><td>Повышает engagement и completion rate курсов</td><td class="complexity-low">Низкая</td></tr>
+              <tr><td class="mech-num">3</td><td><strong>Групповые тарифы + документооборот</strong></td><td>Снимает бюрократические барьеры (школы работают по договорам)</td><td class="complexity-mid">Средняя</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="ref-title">Референсы и активации</div>
+        <div class="ref-list">
+          <div class="ref-item">
+            <div class="ref-icon">&#127891;</div>
+            <div class="ref-content">
+              <div class="ref-name">Школьные экскурсии — устоявшийся рынок</div>
+              <div class="ref-desc">Школьные экскурсии традиционно организуются через турагентства. Спутник8 может дизинтермедиировать рынок — прямой доступ для учителей с фильтрами по возрасту и предмету.</div>
+            </div>
+          </div>
+          <div class="ref-item">
+            <div class="ref-icon">&#127891;</div>
+            <div class="ref-content">
+              <div class="ref-name">EdTech-бонусы</div>
+              <div class="ref-desc">Платформы типа Skillbox/GeekBrains используют бонусы для удержания. Экскурсия — нестандартный бонус с высоким perceived value.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11. Медиа -->
+    <div class="vertical-card" id="v11">
+      <div class="vc-header">
+        <div class="vc-number p-low">11</div>
+        <div class="vc-title-block">
+          <div class="vc-title">Медиа и блогеры</div>
+          <div class="vc-companies">Travel-блогеры, Дзен, ВКонтакте, Telegram-каналы, Afisha.ru</div>
+        </div>
+        <div class="vc-priority-badge"><span class="badge badge-low">Ниже среднего</span></div>
+      </div>
+      <div class="vc-body">
+        <div class="vc-why">
+          <div class="vc-why-title">Зачем им Спутник8</div>
+          <ul>
+            <li>Монетизация контента (партнёрские ссылки, 8–10% комиссия)</li>
+            <li>Релевантный контент для аудитории</li>
+          </ul>
+        </div>
+
+        <div class="mech-title">Приоритизированные механики</div>
+        <div class="mech-table-wrap">
+          <table class="mech-table">
+            <thead><tr><th>#</th><th>Механика</th><th>Обоснование</th><th>Сложность</th></tr></thead>
+            <tbody>
+              <tr><td class="mech-num">1</td><td><strong>Партнёрская программа через Travelpayouts</strong></td><td>Инфраструктура готова — нужно масштабировать привлечение</td><td class="complexity-done">Уже работает</td></tr>
+              <tr><td class="mech-num">2</td><td><strong>Амбассадорские программы</strong> для топ-блогеров</td><td>Блогер создаёт контент &rarr; органический трафик &rarr; продажи</td><td class="complexity-low">Низкая</td></tr>
+              <tr><td class="mech-num">3</td><td><strong>Контент-коллаборации</strong> — гайды "Что делать в [городе]"</td><td>SEO-эффект + доверие аудитории</td><td class="complexity-low">Низкая</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="ref-title">Референсы и активации</div>
+        <div class="ref-list">
+          <div class="ref-item">
+            <div class="ref-icon">&#128247;</div>
+            <div class="ref-content">
+              <div class="ref-name">Tripster — партнёрская программа</div>
+              <div class="ref-desc">10% от бронирования экскурсий, 8% от билетов в музеи, 4% от туров. Виджет-бар автоматически определяет контент и предлагает релевантные экскурсии.</div>
+            </div>
+          </div>
+          <div class="ref-item">
+            <div class="ref-icon">&#128247;</div>
+            <div class="ref-content">
+              <div class="ref-name">Aviasales — SMM-кейс</div>
+              <div class="ref-desc">Aviasales построил узнаваемый бренд через нестандартный Instagram. Совместные контент-коллаборации — дополнительный канал охвата.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12. Рестораны -->
+    <div class="vertical-card" id="v12">
+      <div class="vc-header">
+        <div class="vc-number p-low">12</div>
+        <div class="vc-title-block">
+          <div class="vc-title">Ресторанный бизнес и фуд</div>
+          <div class="vc-companies">Restoclub, Афиша Рестораны, ресторанные группы, фуд-холлы</div>
+        </div>
+        <div class="vc-priority-badge"><span class="badge badge-low">Низкий</span></div>
+      </div>
+      <div class="vc-body">
+        <div class="vc-why">
+          <div class="vc-why-title">Зачем им Спутник8</div>
+          <ul>
+            <li>Дополнительный трафик через гастро-туры</li>
+            <li>Кросс-промо повышает узнаваемость обоих брендов</li>
+          </ul>
+        </div>
+
+        <div class="mech-title">Приоритизированные механики</div>
+        <div class="mech-table-wrap">
+          <table class="mech-table">
+            <thead><tr><th>#</th><th>Механика</th><th>Обоснование</th><th>Сложность</th></tr></thead>
+            <tbody>
+              <tr><td class="mech-num">1</td><td><strong>Гастро-экскурсии с ресторанами-партнёрами</strong></td><td>Ресторан получает целевой трафик, Спутник8 — уникальный контент</td><td class="complexity-mid">Средняя</td></tr>
+              <tr><td class="mech-num">2</td><td><strong>Совместные промоакции</strong> — "Закажи столик + гастро-тур"</td><td>Простой кросс-промо формат</td><td class="complexity-low">Низкая</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="ref-title">Референсы и активации</div>
+        <div class="ref-list">
+          <div class="ref-item">
+            <div class="ref-icon">&#127860;</div>
+            <div class="ref-content">
+              <div class="ref-name">Гастро-туры — тренд 2025–2026</div>
+              <div class="ref-desc">Туристы всё чаще выбирают гастро-маршруты. Спутник8 уже имеет категорию гастро-экскурсий — партнёрство с ресторанами обогащает продукт.</div>
+            </div>
+          </div>
+          <div class="ref-item">
+            <div class="ref-icon">&#127860;</div>
+            <div class="ref-content">
+              <div class="ref-name">Restoclub + городские мероприятия (СПб)</div>
+              <div class="ref-desc">Restoclub организует гастро-события. "Петербург на вкус" с ресторанами-партнёрами — пример нишевой активации.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- RECOMMENDATIONS -->
+  <section class="section" id="recs">
+    <h2 class="section-title">Ключевые рекомендации</h2>
+    <p class="section-subtitle">С чего начать и на что обратить внимание</p>
+
+    <div class="final-summary">
+      <div class="fs-grid">
+        <div class="fs-card">
+          <div class="fs-num">01</div>
+          <div class="fs-label">Начать с OTA + банков</div>
+          <div class="fs-text">Максимальный ROI при минимальных затратах. API/виджет уже есть, партнёрская комиссия 8–10% — готовая основа для переговоров. Т-Банк уже работает с Tripster — прецедент создан.</div>
+        </div>
+        <div class="fs-card">
+          <div class="fs-num">02</div>
+          <div class="fs-label">Фокус на момент travel-intent</div>
+          <div class="fs-text">Партнёрства наиболее эффективны в точке принятия решения о поездке или по прибытии в город. Post-booking email и push-уведомления — самые конверсионные каналы.</div>
+        </div>
+        <div class="fs-card">
+          <div class="fs-num">03</div>
+          <div class="fs-label">"Коробочные" решения</div>
+          <div class="fs-text">Для каждой вертикали подготовить виджет, API, white-label — чтобы снизить порог входа для партнёра. Чем проще интеграция, тем быстрее запуск.</div>
+        </div>
+        <div class="fs-card">
+          <div class="fs-num">04</div>
+          <div class="fs-label">Масштабировать через экосистемы</div>
+          <div class="fs-text">Яндекс (Путешествия + Go + Драйв + Плюс), Сбер (Путешествия + банк + страховка), МТС (Travel + телеком) — одна интеграция открывает доступ к нескольким каналам.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" width="120" height="19" viewBox="0 0 155 24">
+        <g fill="none" fill-rule="evenodd"><g fill-rule="nonzero"><g>
+          <g transform="translate(0 0)">
+            <path fill="#fff" d="M6.87 9.532L.251 14.657.251 15.725 6.55 12.735zM14.878 16.152L11.354 23.732 10.287 23.946 11.781 17.113z"/>
+            <path fill="#FFD300" d="M6.55 18.18c-.214-.96-.427-8.114 1.068-11.85 1.28-3.31 3.95-5.98 7.046-6.3 1.602-.107 3.523.107 5.338 1.708 1.922 1.495 2.456 3.097 2.67 4.698.427 3.203-1.709 6.3-4.591 8.221-3.31 2.242-11.104 3.63-11.317 3.63-.107 0-.214 0-.214-.107z"/>
+            <circle cx="15.732" cy="7.29" r="3.63" fill="#fff"/>
+            <path fill="#231F20" d="M15.732 9.326c1.1 0 1.993-.892 1.993-1.993s-.892-1.994-1.993-1.994-1.993.893-1.993 1.994c0 1.1.892 1.993 1.993 1.993z"/>
+          </g>
+          <path fill="#fff" d="M35.483 20.316c-2.135 0-4.164-.748-5.765-1.709l1.068-2.776c1.494.961 3.203 1.602 4.804 1.602 2.135 0 2.99-1.068 2.99-2.135 0-1.175-.641-1.922-3.844-3.097-3.417-1.28-4.591-2.882-4.591-5.018 0-2.669 2.135-5.124 5.872-5.124 1.922 0 3.737.534 4.911 1.174l-.96 2.776c-1.068-.534-2.563-1.174-3.95-1.174-1.816 0-2.67 1.067-2.67 2.242 0 1.174.96 1.815 3.416 2.776 3.95 1.494 5.018 3.096 5.018 5.445.107 3.096-2.348 5.018-6.299 5.018zM51.284 14.87v5.125h-3.096V2.38h5.445c4.698 0 7.047 2.562 7.047 6.3 0 3.736-2.35 6.298-7.687 6.298h-1.709v-.106zm0-9.608v6.94h2.029c2.883 0 3.95-1.602 3.95-3.524s-.96-3.416-3.95-3.416h-2.029zM66.445 2.379h3.096v10.356c0 3.417 1.495 4.805 4.164 4.805 2.67 0 4.27-1.388 4.27-4.805V2.38h3.097v10.356c0 5.232-2.99 7.58-7.367 7.58s-7.26-2.348-7.26-7.58V2.38zM86.41 2.379L101.25 2.379 101.25 5.262 95.485 5.262 95.485 19.995 92.389 19.995 92.389 5.262 86.517 5.262 86.517 2.379zM106.589 2.272L107.55 2.272 118.44 13.589 118.44 2.379 121.536 2.379 121.536 20.102 120.682 20.102 109.685 9.105 109.685 20.102 106.589 20.102 106.589 2.272zM129.223 2.379L132.319 2.379 132.319 19.995 129.223 19.995zM140.006 2.379L143.102 2.379 143.102 11.027 150.576 2.379 154.312 2.379 146.198 11.668 154.74 19.995 150.896 19.995 143.102 12.415 143.102 19.995 140.006 19.995z"/>
+        </g></g></g>
+      </svg>
+    </div>
+    <div class="footer-text">Стратегия партнёрств &middot; Аналитический отчёт &middot; Март 2026</div>
+  </div>
+</footer>
+
+<script>
+// Highlight active TOC link on scroll
+const tocLinks = document.querySelectorAll('.toc a');
+const sections = [];
+tocLinks.forEach(link => {
+  const id = link.getAttribute('href').slice(1);
+  const el = document.getElementById(id);
+  if (el) sections.push({ el, link });
+});
+
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      const scrollY = window.scrollY + 140;
+      let current = sections[0];
+      for (const s of sections) {
+        if (s.el.offsetTop <= scrollY) current = s;
+      }
+      tocLinks.forEach(l => l.classList.remove('active'));
+      if (current) current.link.classList.add('active');
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.getElementById(a.getAttribute('href').slice(1));
+    if (target) {
+      const offset = 120;
+      window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
