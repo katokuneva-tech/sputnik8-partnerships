@@ -756,6 +756,86 @@ body {
 }
 .reviews-verdict strong { color: #231F20; }
 
+/* ===== DISCLAIMER ===== */
+.disclaimer {
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: #fff7e6;
+  border-left: 3px solid #d48806;
+  border-radius: 3px;
+  font-size: 11px;
+  color: #999;
+  line-height: 1.5;
+}
+
+/* ===== COMPARISON TABLE ===== */
+.comparison-section {
+  margin-bottom: 48px;
+}
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.comparison-table th {
+  background: #f8f9fb;
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 700;
+  color: #444;
+  border-bottom: 2px solid #eee;
+}
+.comparison-table td {
+  padding: 11px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  vertical-align: top;
+}
+.comparison-table tr:last-child td { border-bottom: none; }
+.comparison-table tr:hover td { background: #fafbfd; }
+.comparison-table .highlight-cell { background: #f0f7ff; font-weight: 700; }
+
+/* ===== QUALITY BLOCK ===== */
+.quality-block {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 24px 28px;
+  margin-bottom: 32px;
+  border-left: 4px solid #d48806;
+}
+.quality-block h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #d48806;
+}
+.quality-block ul { list-style: none; }
+.quality-block li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #444;
+  line-height: 1.5;
+}
+.quality-block li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 8px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #d48806;
+}
+.quality-block p {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+  margin-top: 12px;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .hero { padding: 48px 16px 40px; }
@@ -803,6 +883,7 @@ body {
       <a href="#summary">Сводная таблица</a>
       <a href="#recs">Рекомендации</a>
       <a href="#reviews">Отзывы</a>
+      <a href="#positioning">Позиционирование</a>
       <a href="#pitches">Питчи</a>
     </nav>
   </div>
@@ -869,7 +950,7 @@ body {
           </tr>
         </thead>
         <tbody>
-          <tr><td>1</td><td>Яндекс Путешествия (экосистема)</td><td class="priority-max">Максимальный</td><td>Раздел "Экскурсии" + кэшбэк Плюс + синергия Go/Драйв</td><td>Т-Банк + Tripster (работает)</td></tr>
+          <tr><td>1</td><td>OTA и сервисы бронирования</td><td class="priority-max">Максимальный</td><td>API-витрина "Чем заняться" в post-booking</td><td>GetYourGuide + EasyJet/KLM</td></tr>
           <tr><td>2</td><td>Банки и финтех</td><td class="priority-vhigh">Очень высокий</td><td>White-label витрина в суперприложении</td><td>Т-Банк + Tripster (работает)</td></tr>
           <tr><td>3</td><td>Транспортные компании</td><td class="priority-high">Высокий</td><td>Email/push после покупки билета</td><td>S7 Priority + экскурсии за мили</td></tr>
           <tr><td>4</td><td>Телеком-операторы</td><td class="priority-high">Высокий</td><td>Витрина в travel-разделе приложения</td><td>МТС Travel white-label модуль</td></tr>
@@ -916,7 +997,7 @@ body {
           <table class="mech-table">
             <thead><tr><th>#</th><th>Механика</th><th>Обоснование</th><th>Сложность</th></tr></thead>
             <tbody>
-              <tr><td class="mech-num">1</td><td><strong>API-витрина "Чем заняться в [городе]"</strong> на странице подтверждения бронирования</td><td>Самая высокая конверсия: пользователь уже купил билет, экскурсия — естественный next step. Aviasales уже имеет раздел "Гиды" — можно заменить/дополнить</td><td class="complexity-mid">Средняя</td></tr>
+              <tr><td class="mech-num">1</td><td><strong>API-витрина "Чем заняться в [городе]"</strong> на странице подтверждения бронирования</td><td>Самая высокая конверсия: пользователь уже купил билет, экскурсия — естественный next step. Модель валидирована на зарубежных OTA (GetYourGuide + EasyJet)</td><td class="complexity-mid">Средняя</td></tr>
               <tr><td class="mech-num">2</td><td><strong>Email-триггеры</strong> — "Топ-5 экскурсий в Казани" через 1–2 дня после покупки билета</td><td>Высокий open rate (контекстное письмо), низкая стоимость — нужен только шаблон + deeplink</td><td class="complexity-low">Низкая</td></tr>
               <tr><td class="mech-num">3</td><td><strong>Push-уведомления</strong> в приложении за 3–7 дней до поездки</td><td>Мобильный канал с высокой видимостью, работает на "последнюю милю"</td><td class="complexity-low">Низкая</td></tr>
               <tr><td class="mech-num">4</td><td><strong>Кобрендинговый лендинг</strong> — "Экскурсии для путешественников [бренд]"</td><td>SEO-эффект + доверие через бренд партнёра, но долгий цикл согласования</td><td class="complexity-low">Низкая</td></tr>
@@ -1614,6 +1695,54 @@ body {
     </div>
   </section>
 
+  <!-- COMPETITIVE POSITIONING -->
+  <section class="section" id="positioning">
+    <h2 class="section-title">Конкурентное позиционирование: Спутник8 vs Tripster</h2>
+    <p class="section-subtitle">Честное сравнение для подготовки к вопросу "Почему не Tripster?"</p>
+
+    <div class="comparison-section">
+      <div class="summary-table-wrap">
+        <table class="comparison-table">
+          <thead>
+            <tr><th>Параметр</th><th>Спутник8</th><th>Tripster</th><th>Комментарий</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Каталог</strong></td><td class="highlight-cell">28 000+ экскурсий</td><td>~20 000 экскурсий</td><td>Спутник8 шире, особенно по России</td></tr>
+            <tr><td><strong>География</strong></td><td class="highlight-cell">1 090 городов</td><td>700+ городов</td><td>Спутник8 сильнее в малых городах РФ</td></tr>
+            <tr><td><strong>Гиды</strong></td><td>24 000+</td><td>Данные не публичны</td><td>Оба — маркетплейсы с верификацией</td></tr>
+            <tr><td><strong>Крупные B2B-партнёры</strong></td><td>Travelpayouts (партнёрка)</td><td class="highlight-cell">Т-Банк, Aviasales</td><td>У Tripster сильнее B2B-позиция</td></tr>
+            <tr><td><strong>Партнёрская комиссия</strong></td><td>8–10%</td><td>4–10%</td><td>Сопоставимо</td></tr>
+            <tr><td><strong>Техническая готовность</strong></td><td>API, white-label</td><td class="highlight-cell">Виджет (1 строка кода), API, white-label</td><td>Tripster — проще начать (plug&play виджет)</td></tr>
+            <tr><td><strong>Рейтинги (Otzovik)</strong></td><td>3.8 / 5</td><td>~4.2 / 5</td><td>У Tripster чуть лучше репутация</td></tr>
+            <tr><td><strong>Зарубежные направления</strong></td><td>Есть, но слабее</td><td class="highlight-cell">Сильная позиция (Европа, Азия)</td><td>Tripster исторически ориентирован на зарубеж</td></tr>
+            <tr><td><strong>Занятость в B2B</strong></td><td class="highlight-cell">Свободен для эксклюзивных партнёрств</td><td>Занят Т-Банком, Aviasales</td><td>Ключевое преимущество Спутник8</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="reviews-verdict" style="margin-top:24px;">
+        <h3>Вывод для BD-команды</h3>
+        <p><strong>Главный аргумент Спутник8:</strong> Tripster уже "занят" ключевыми партнёрами (Т-Банк, Aviasales). Для компаний, которые хотят эксклюзивное партнёрство или не хотят подключать поставщика конкурента, Спутник8 — единственная альтернатива с сопоставимым каталогом.</p>
+        <p style="margin-top:8px;"><strong>Слабые стороны, которые нужно закрывать:</strong> репутационные риски (рейтинг 3.4–3.8 ниже Tripster), менее развитый plug&play виджет, слабее зарубежное покрытие. В питчах лучше не сравнивать рейтинги напрямую — акцентировать объём каталога и эксклюзивность.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUALITY ASSURANCE -->
+  <div class="container">
+    <div class="quality-block">
+      <h3>Управление репутационными рисками: что сказать партнёру</h3>
+      <p>Партнёры будут проверять отзывы. Рейтинг 3.4 на 2ГИС и жалобы на гидов — реальность, которую нельзя игнорировать. Рекомендуемая позиция в переговорах:</p>
+      <ul>
+        <li><strong>Признать и контекстуализировать:</strong> "Как любой маркетплейс с 24 000+ поставщиками, мы получаем жалобы. Наш фокус — системная работа с качеством"</li>
+        <li><strong>Показать механизмы контроля:</strong> верификация гидов, система отзывов, модерация контента, возврат средств при доказанном несоответствии</li>
+        <li><strong>Предложить SLA для партнёра:</strong> выделенная линия поддержки для клиентов партнёра, ускоренный возврат, регулярный отчёт по качеству</li>
+        <li><strong>Курируемый каталог:</strong> для партнёрской витрины — не весь каталог, а только экскурсии с рейтингом 4.5+ и 50+ отзывов</li>
+      </ul>
+      <p><strong>Важно:</strong> Если партнёр поднимает тему рейтингов — не оправдываться, а предложить конкретный пилот с курируемым каталогом и SLA. Результаты пилота убедительнее любых слов.</p>
+    </div>
+  </div>
+
   <!-- PITCHES -->
   <section class="section" id="pitches">
     <h2 class="section-title">Питчи для топ-5 партнёров</h2>
@@ -1682,6 +1811,7 @@ body {
               <li>+ рост retention Плюс (дополнительная ценность подписки)</li>
               <li>+ данные о travel-поведении для рекомендаций</li>
             </ul>
+            <div class="disclaimer">Оценки основаны на допущениях о конверсии и travel-intent. Реальные показатели зависят от размещения витрины, сезона и UX. Рекомендуется валидировать на пилоте.</div>
           </div>
           <div class="pitch-appendix-block">
             <h4>Формат пилота</h4>
@@ -1772,6 +1902,7 @@ body {
               <li>Потенциал: 75К–150К бронирований/год = 190–375М руб. GMV</li>
               <li>Доход Сбера (комиссия + interchange): 20–40М руб./год</li>
             </ul>
+            <div class="disclaimer">Оценочные расчёты. Конверсия 0.5–1% — гипотеза, требующая валидации на пилоте. % travel-intent среди клиентов банка может отличаться.</div>
           </div>
           <div class="pitch-appendix-block">
             <h4>Формат пилота</h4>
@@ -1862,6 +1993,7 @@ body {
               <li>Комиссия РЖД (8%): 8–16М руб./год</li>
               <li>+ повышение ценности РЖД Бонус</li>
             </ul>
+            <div class="disclaimer">Конверсия email-блока 1–2% — ориентир по отраслевым бенчмаркам OTA. Для РЖД реальная конверсия может отличаться — зависит от размещения и дизайна блока.</div>
           </div>
           <div class="pitch-appendix-block">
             <h4>Формат пилота</h4>
@@ -1956,6 +2088,7 @@ body {
               <li>Комиссия МТС (8%): 5–8М руб./год</li>
               <li>Ноль CAPEX, ноль OPEX</li>
             </ul>
+            <div class="disclaimer">Конверсия geo-push 0.3–0.5% — гипотеза. Реальные показатели зависят от частоты и контекста пушей. Рекомендуется A/B-тест на пилоте.</div>
           </div>
           <div class="pitch-appendix-block">
             <h4>Формат пилота</h4>
@@ -2027,7 +2160,7 @@ body {
         <div class="pitch-letter">
           <p class="pl-greeting">Здравствуйте!</p>
           <p>Поздравляю с попаданием Островка в <span class="pl-highlight">топ-15 мировых сайтов категории "Hotel Business" по Similarweb</span>. Впечатляющий результат для российской платформы.</p>
-          <p>При этом глобальные конкуренты — Booking.com, Expedia — активно развивают раздел "Things to Do" (экскурсии и активности) как инструмент cross-sell. <span class="pl-highlight">Это +3–8% к ARPU на бронирование</span>. У Островка этого пока нет — а значит, есть возможность.</p>
+          <p>При этом глобальные конкуренты — Booking.com, Expedia — активно развивают раздел "Things to Do" (экскурсии и активности) как инструмент cross-sell. <span class="pl-highlight">экскурсии становятся значимым источником ancillary revenue</span>. У Островка этого пока нет — а значит, есть возможность.</p>
           <p><strong>Контекст:</strong> отельный бизнес использует три подхода к допродажам: upsell (лучший номер), cross-sell (экскурсии, трансферы), add-on (завтрак). Программа GURU уже работает на upsell. Cross-sell через экскурсии — следующий шаг.</p>
           <p><strong>Предложение:</strong> Спутник8 подключает блок "Экскурсии рядом с вашим отелем" в confirmation-email Островка и/или на странице отеля. 28 000 экскурсий в 1 090 городах. Виджет подбирает экскурсии автоматически по геокоординатам отеля.</p>
           <p><strong>Модель:</strong> Комиссия Островку — 8–10% от каждого бронирования экскурсии. Ноль затрат на каталог, модерацию, поддержку — всё на стороне Спутник8.</p>
@@ -2046,6 +2179,7 @@ body {
               <li>+150К–300К руб./мес чистого дохода</li>
               <li>Рост ARPU на бронирование: +3–5%</li>
             </ul>
+            <div class="disclaimer">+3–5% ARPU — бенчмарк Booking.com "Things to Do" (зарубежный рынок). Для Островка реальный прирост может отличаться. Объём confirmation-emails — оценочный.</div>
           </div>
           <div class="pitch-appendix-block">
             <h4>Формат пилота</h4>
@@ -2112,7 +2246,7 @@ body {
         <h3>Что хвалят</h3>
         <ul class="pros-list">
           <li>Удобный интерфейс, быстрое бронирование</li>
-          <li>Широкий выбор экскурсий (18 000+)</li>
+          <li>Широкий выбор экскурсий (28 000+)</li>
           <li>Адекватные цены</li>
           <li>Билеты сразу приходят на почту</li>
           <li>Бесплатная отмена за 48–72 часа</li>
