@@ -416,6 +416,214 @@ body {
   border-bottom-color: #2762F4;
 }
 
+/* ===== PITCHES SECTION ===== */
+.pitch-card {
+  border: 1px solid #eee;
+  border-radius: 6px;
+  margin-bottom: 36px;
+  overflow: hidden;
+  background: #fff;
+}
+.pitch-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,.06); }
+
+.pitch-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  border-bottom: 1px solid #f0f0f0;
+  background: #fafbfd;
+}
+.pitch-logo {
+  width: 48px; height: 48px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+.pitch-logo.av { background: #ff6d00; }
+.pitch-logo.sb { background: #21a038; }
+.pitch-logo.rz { background: #e21a1a; }
+.pitch-logo.mt { background: #e30611; }
+.pitch-logo.os { background: #2762F4; }
+.pitch-header-text { flex: 1; }
+.pitch-header-text h3 { font-size: 20px; font-weight: 700; margin-bottom: 2px; }
+.pitch-header-text .pitch-tagline { font-size: 13px; color: #999; }
+.pitch-badge-wrap { flex-shrink: 0; }
+
+.pitch-body { padding: 24px; }
+
+.pitch-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.pitch-meta-item {
+  background: #f8f9fb;
+  border-radius: 4px;
+  padding: 12px 16px;
+}
+.pitch-meta-item .pm-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: #999;
+  margin-bottom: 4px;
+}
+.pitch-meta-item .pm-value {
+  font-size: 14px;
+  color: #231F20;
+  font-weight: 700;
+}
+
+.pitch-subjects {
+  margin-bottom: 24px;
+}
+.pitch-subjects h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #666;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: .3px;
+}
+.pitch-subjects ol {
+  list-style: none;
+  counter-reset: subj;
+}
+.pitch-subjects li {
+  counter-increment: subj;
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #444;
+}
+.pitch-subjects li::before {
+  content: counter(subj);
+  position: absolute;
+  left: 0; top: 1px;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: #2762F4;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pitch-letter {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  position: relative;
+}
+.pitch-letter::before {
+  content: 'ЧЕРНОВИК ПИСЬМА';
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background: #fff;
+  padding: 0 8px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #2762F4;
+  letter-spacing: 1px;
+}
+.pitch-letter p {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+.pitch-letter p:last-child { margin-bottom: 0; }
+.pitch-letter .pl-greeting { color: #231F20; font-weight: 700; }
+.pitch-letter .pl-highlight { background: #fffbe6; padding: 1px 4px; border-radius: 2px; }
+.pitch-letter .pl-cta {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 8px 20px;
+  background: #2762F4;
+  color: #fff;
+  border-radius: 3px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.pitch-appendix {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.pitch-appendix-block {
+  background: #f8f9fb;
+  border-radius: 4px;
+  padding: 16px 20px;
+}
+.pitch-appendix-block h4 {
+  font-size: 13px;
+  font-weight: 700;
+  color: #2762F4;
+  text-transform: uppercase;
+  letter-spacing: .3px;
+  margin-bottom: 10px;
+}
+.pitch-appendix-block ul {
+  list-style: none;
+}
+.pitch-appendix-block li {
+  font-size: 13px;
+  color: #444;
+  margin-bottom: 5px;
+  padding-left: 14px;
+  position: relative;
+  line-height: 1.5;
+}
+.pitch-appendix-block li::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  color: #2762F4;
+  font-weight: 700;
+}
+
+.pitch-tips {
+  border-top: 1px solid #eee;
+  padding-top: 16px;
+}
+.pitch-tips h4 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.pitch-tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+.pitch-tip {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+}
+.pitch-tip strong {
+  display: block;
+  color: #231F20;
+  margin-bottom: 2px;
+}
+
 /* ===== REVIEWS SECTION ===== */
 .reviews-grid {
   display: grid;
@@ -565,6 +773,9 @@ body {
   .ref-item { flex-direction: column; }
   .final-summary { padding: 20px; }
   .reviews-grid { grid-template-columns: 1fr; }
+  .pitch-appendix { grid-template-columns: 1fr; }
+  .pitch-header { flex-direction: column; align-items: flex-start; }
+  .pitch-meta { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -592,6 +803,7 @@ body {
       <a href="#summary">Сводная таблица</a>
       <a href="#recs">Рекомендации</a>
       <a href="#reviews">Отзывы</a>
+      <a href="#pitches">Питчи</a>
     </nav>
   </div>
 </header>
@@ -1400,6 +1612,465 @@ body {
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- PITCHES -->
+  <section class="section" id="pitches">
+    <h2 class="section-title">Питчи для топ-5 партнёров</h2>
+    <p class="section-subtitle">Персонализированные предложения о партнёрстве, готовые к отправке</p>
+
+    <!-- PITCH 1: Aviasales -->
+    <div class="pitch-card">
+      <div class="pitch-header">
+        <div class="pitch-logo av">A</div>
+        <div class="pitch-header-text">
+          <h3>Aviasales</h3>
+          <div class="pitch-tagline">OTA &middot; Метапоисковик авиабилетов &middot; 20M+ MAU</div>
+        </div>
+        <div class="pitch-badge-wrap"><span class="badge badge-max">Максимальный приоритет</span></div>
+      </div>
+      <div class="pitch-body">
+        <div class="pitch-meta">
+          <div class="pitch-meta-item">
+            <div class="pm-label">Ключевое совпадение</div>
+            <div class="pm-value">У Aviasales уже есть раздел "Гиды" — но контент ограничен</div>
+          </div>
+          <div class="pitch-meta-item">
+            <div class="pm-label">Формат интеграции</div>
+            <div class="pm-value">API-витрина + email-триггеры</div>
+          </div>
+          <div class="pitch-meta-item">
+            <div class="pm-label">Потенциал для партнёра</div>
+            <div class="pm-value">Рост ARPU на 3–8% за счёт ancillary</div>
+          </div>
+        </div>
+
+        <div class="pitch-subjects">
+          <h4>Варианты темы письма</h4>
+          <ol>
+            <li>28 000 экскурсий для ваших пассажиров — без разработки</li>
+            <li>Aviasales "Гиды": как удвоить каталог за 2 недели через API</li>
+            <li>Viator + Air France = +12% ancillary revenue. Давайте повторим?</li>
+          </ol>
+        </div>
+
+        <div class="pitch-letter">
+          <p class="pl-greeting">Здравствуйте!</p>
+          <p>Вижу, что Aviasales развивает раздел <span class="pl-highlight">"Гиды" (aviasales.ru/guides)</span> — отличное направление. Рынок экскурсионных услуг в России вырос до 311 млрд руб. (+35% г/г), и ancillary revenue от активностей становится стандартом для крупных OTA.</p>
+          <p>Проблема: собственная модерация и привлечение гидов — это долго и дорого. GetYourGuide потратил 3 года, чтобы выстроить свой каталог, а потом предложил его EasyJet и KLM как готовое API-решение.</p>
+          <p><strong>Предложение:</strong> Спутник8 готов подключить <span class="pl-highlight">28 000+ экскурсий в 1 090 городах</span> к Aviasales через API. Интеграция на вашей стороне — 1–2 недели. Комиссия: 8–10% от каждого бронирования вашему бизнесу, без фикса.</p>
+          <p>Как это работает: пользователь покупает билет Москва→Казань, на странице подтверждения видит блок "Чем заняться в Казани" с топ-экскурсиями. Второй касание — email через 2 дня. Конверсия в бронирование на аналогичных интеграциях: 2–4% от показов.</p>
+          <p><strong>Референс:</strong> Viator интегрировался в post-booking flow Air France и IHG. GetYourGuide — в EasyJet и KLM. В России Т-Банк уже подключил конкурента (Tripster) в свой travel-раздел и даёт 5% кэшбэк.</p>
+          <p>Предлагаю 20-минутный звонок, чтобы показать API-документацию и обсудить пилот на 2–3 направлениях.</p>
+          <p><strong>С уважением,<br>[Имя], BD, Спутник8</strong></p>
+        </div>
+
+        <div class="pitch-appendix">
+          <div class="pitch-appendix-block">
+            <h4>Юнит-экономика для Aviasales</h4>
+            <ul>
+              <li>Средний чек экскурсии: 2 500 руб.</li>
+              <li>Конверсия post-booking: 2–4%</li>
+              <li>Комиссия Aviasales: 8–10% = 200–250 руб./бронирование</li>
+              <li>При 100K показов/мес: 2 000–4 000 бронирований = 400К–1М руб./мес дополнительного дохода</li>
+            </ul>
+          </div>
+          <div class="pitch-appendix-block">
+            <h4>Формат пилота</h4>
+            <ul>
+              <li>Старт: 3 топ-направления (Питер, Казань, Сочи)</li>
+              <li>Интеграция: API-виджет на странице подтверждения</li>
+              <li>Срок пилота: 4 недели</li>
+              <li>Критерий успеха: конверсия &gt;1.5% от показов</li>
+              <li>Время на интеграцию: 1–2 недели</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pitch-tips">
+          <h4>Рекомендации для BD</h4>
+          <div class="pitch-tips-grid">
+            <div class="pitch-tip">
+              <strong>Тайминг</strong>
+              Питчить перед высоким сезоном (апрель–май) или после публикации квартальных результатов
+            </div>
+            <div class="pitch-tip">
+              <strong>Усилить</strong>
+              Подготовить live-демо API с экскурсиями по Казани — показать скорость и качество каталога
+            </div>
+            <div class="pitch-tip">
+              <strong>Фоллоу-ап</strong>
+              Если нет ответа за 5 дней — переслать с темой "Данные: сколько зарабатывает EasyJet на экскурсиях"
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PITCH 2: СберПутешествия -->
+    <div class="pitch-card">
+      <div class="pitch-header">
+        <div class="pitch-logo sb">C</div>
+        <div class="pitch-header-text">
+          <h3>СберПутешествия</h3>
+          <div class="pitch-tagline">Банк / Суперприложение &middot; Travel-экосистема Сбера &middot; 100M+ клиентов банка</div>
+        </div>
+        <div class="pitch-badge-wrap"><span class="badge badge-vhigh">Очень высокий</span></div>
+      </div>
+      <div class="pitch-body">
+        <div class="pitch-meta">
+          <div class="pitch-meta-item">
+            <div class="pm-label">Ключевое совпадение</div>
+            <div class="pm-value">У Сбера есть билеты и отели, но нет экскурсий — пробел в экосистеме</div>
+          </div>
+          <div class="pitch-meta-item">
+            <div class="pm-label">Формат интеграции</div>
+            <div class="pm-value">White-label витрина в суперприложении</div>
+          </div>
+          <div class="pitch-meta-item">
+            <div class="pm-label">Конкурентный контекст</div>
+            <div class="pm-value">Т-Банк уже подключил Tripster — Сбер отстаёт</div>
+          </div>
+        </div>
+
+        <div class="pitch-subjects">
+          <h4>Варианты темы письма</h4>
+          <ol>
+            <li>Т-Банк уже продаёт экскурсии. СберПутешествия — следующие?</li>
+            <li>28 000 экскурсий для 100М клиентов Сбера — white-label за 3 недели</li>
+            <li>Рынок экскурсий: 311 млрд руб. Доля СберПутешествий — пока 0%</li>
+          </ol>
+        </div>
+
+        <div class="pitch-letter">
+          <p class="pl-greeting">Здравствуйте!</p>
+          <p>СберПутешествия выстраивают полный цикл путешествия: билеты, отели, туры. Но одного элемента не хватает — <span class="pl-highlight">экскурсий и активностей на месте</span>. А это рынок в 311 млрд руб., растущий на 35% в год.</p>
+          <p>При этом ваш прямой конкурент — <span class="pl-highlight">Т-Банк — уже подключил Tripster</span> в раздел "Путешествия" и даёт 5% кэшбэк за экскурсии. Клиенты Т-Банка бронируют экскурсии в 700+ городах, не выходя из приложения.</p>
+          <p><strong>Предложение:</strong> Спутник8 предлагает white-label витрину экскурсий для СберПутешествий. 28 000+ экскурсий, 1 090 городов, 24 000+ верифицированных гидов — под брендом Сбера.</p>
+          <p><strong>Почему Спутник8, а не Tripster:</strong> более широкий каталог (28К vs 20К экскурсий), сильные позиции по России (Tripster сильнее за рубежом), готовый API и white-label. Плюс — Tripster уже занят Т-Банком, что делает эксклюзивное партнёрство со Спутник8 конкурентным преимуществом.</p>
+          <p><strong>Модель:</strong> Кэшбэк 5–7% "СберСпасибо" за экскурсии при оплате картой Сбера. Повышенный кэшбэк для СберПрайм. Комиссия Спутник8 — от стоимости экскурсии, без фикса для Сбера.</p>
+          <p>Готов показать демо white-label витрины и обсудить условия пилота на Москву и Петербург.</p>
+          <p><strong>С уважением,<br>[Имя], BD, Спутник8</strong></p>
+        </div>
+
+        <div class="pitch-appendix">
+          <div class="pitch-appendix-block">
+            <h4>Юнит-экономика для Сбера</h4>
+            <ul>
+              <li>100М+ клиентов банка, ~15% с travel-intent = 15М потенциальных покупателей</li>
+              <li>Средний чек экскурсии: 2 500 руб.</li>
+              <li>Конверсия витрины: 0.5–1%</li>
+              <li>Потенциал: 75К–150К бронирований/год = 190–375М руб. GMV</li>
+              <li>Доход Сбера (комиссия + interchange): 20–40М руб./год</li>
+            </ul>
+          </div>
+          <div class="pitch-appendix-block">
+            <h4>Формат пилота</h4>
+            <ul>
+              <li>Старт: white-label витрина для Москвы и Петербурга</li>
+              <li>Интеграция: API в раздел СберПутешествий</li>
+              <li>Кэшбэк: 5% СберСпасибо за каждую экскурсию</li>
+              <li>Срок пилота: 6 недель</li>
+              <li>Критерий: &gt;500 бронирований за пилот</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pitch-tips">
+          <h4>Рекомендации для BD</h4>
+          <div class="pitch-tips-grid">
+            <div class="pitch-tip">
+              <strong>Тайминг</strong>
+              Идеально — Q1/Q2, перед летним сезоном. Также после публикации отчётности Сбера (когда видно отставание travel-выручки от Т-Банка)
+            </div>
+            <div class="pitch-tip">
+              <strong>Ключевой аргумент</strong>
+              "Т-Банк уже это делает" — конкурентное давление работает лучше любых цифр
+            </div>
+            <div class="pitch-tip">
+              <strong>Вход</strong>
+              Целить в Product Owner СберПутешествий или BD-директора. LinkedIn + отраслевые конференции (MITT, TravelHub)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PITCH 3: РЖД -->
+    <div class="pitch-card">
+      <div class="pitch-header">
+        <div class="pitch-logo rz">Р</div>
+        <div class="pitch-header-text">
+          <h3>РЖД</h3>
+          <div class="pitch-tagline">Транспорт &middot; 1.2 млрд пассажиров/год &middot; Цифровая экосистема</div>
+        </div>
+        <div class="pitch-badge-wrap"><span class="badge badge-high">Высокий</span></div>
+      </div>
+      <div class="pitch-body">
+        <div class="pitch-meta">
+          <div class="pitch-meta-item">
+            <div class="pm-label">Ключевое совпадение</div>
+            <div class="pm-value">РЖД строит мультимодальную платформу — экскурсии дополняют экосистему</div>
+          </div>
+          <div class="pitch-meta-item">
+            <div class="pm-label">Формат интеграции</div>
+            <div class="pm-value">Post-purchase email/push + РЖД Бонус</div>
+          </div>
+          <div class="pitch-meta-item">
+            <div class="pm-label">Фокус-маршруты</div>
+            <div class="pm-value">Сапсан: Москва–Питер, Москва–Казань</div>
+          </div>
+        </div>
+
+        <div class="pitch-subjects">
+          <h4>Варианты темы письма</h4>
+          <ol>
+            <li>Пассажиры Сапсана тратят 0 руб. на экскурсии через РЖД. Это можно изменить</li>
+            <li>"Чем заняться в Петербурге" — новый блок в приложении РЖД за 2 недели</li>
+            <li>EasyJet зарабатывает на экскурсиях после покупки билета. РЖД — пока нет</li>
+          </ol>
+        </div>
+
+        <div class="pitch-letter">
+          <p class="pl-greeting">Здравствуйте!</p>
+          <p>РЖД перевозит 1.2 млрд пассажиров в год, 74% билетов продаётся онлайн. При этом <span class="pl-highlight">ancillary revenue от активностей в городе прибытия — практически нулевой</span>. В авиаиндустрии это уже стандартный источник дохода.</p>
+          <p>Каждый пассажир Сапсана на маршруте Москва–Петербург — потенциальный покупатель экскурсии. Сейчас он ищет "что посмотреть в Питере" в Google. Мы предлагаем, чтобы он нашёл это <span class="pl-highlight">в приложении РЖД или email-подтверждении билета</span>.</p>
+          <p><strong>Предложение:</strong> Спутник8 подключает блок "Экскурсии в [город прибытия]" в post-purchase коммуникации РЖД. Формат на выбор: виджет в приложении, блок в email-подтверждении билета, push-уведомление за 3 дня до поездки.</p>
+          <p><strong>Модель:</strong> Комиссия 8–10% от каждого бронирования — для РЖД. Возможна интеграция в РЖД Бонус: начисление/списание баллов за экскурсии. Для РЖД — ноль затрат на разработку продукта, ноль операционных расходов.</p>
+          <p><strong>Масштаб:</strong> 28 000 экскурсий в 1 090 городах. Особенно сильное покрытие по маршрутам Сапсана: Москва (3 200+), Петербург (2 800+), Казань (900+), Нижний Новгород (400+).</p>
+          <p>Предлагаю встречу для обсуждения пилота на маршруте Москва–Петербург. Готов показать прототип блока в email.</p>
+          <p><strong>С уважением,<br>[Имя], BD, Спутник8</strong></p>
+        </div>
+
+        <div class="pitch-appendix">
+          <div class="pitch-appendix-block">
+            <h4>Юнит-экономика для РЖД</h4>
+            <ul>
+              <li>Сапсан МСК–СПб: ~5М пассажиров/год</li>
+              <li>Конверсия email-блока: 1–2%</li>
+              <li>50К–100К бронирований/год по одному маршруту</li>
+              <li>Средний чек: 2 000 руб. &rarr; GMV 100–200М руб.</li>
+              <li>Комиссия РЖД (8%): 8–16М руб./год</li>
+              <li>+ повышение ценности РЖД Бонус</li>
+            </ul>
+          </div>
+          <div class="pitch-appendix-block">
+            <h4>Формат пилота</h4>
+            <ul>
+              <li>Маршрут: Москва &harr; Санкт-Петербург (Сапсан)</li>
+              <li>Канал: email-блок в подтверждении билета</li>
+              <li>Контент: топ-10 экскурсий в городе прибытия</li>
+              <li>Срок: 6 недель</li>
+              <li>Критерий: CTR &gt;3%, конверсия &gt;1%</li>
+              <li>Техническая интеграция: вставка HTML-блока в email-шаблон</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pitch-tips">
+          <h4>Рекомендации для BD</h4>
+          <div class="pitch-tips-grid">
+            <div class="pitch-tip">
+              <strong>Тайминг</strong>
+              РЖД планирует бюджеты цифровых сервисов в Q3–Q4. Питчить в сентябре–октябре для включения в план на следующий год
+            </div>
+            <div class="pitch-tip">
+              <strong>Барьер</strong>
+              Бюрократия РЖД. Выход: начать с email-блока (не требует изменений в приложении), затем масштабировать
+            </div>
+            <div class="pitch-tip">
+              <strong>Вход</strong>
+              Дирекция пассажирских перевозок или РЖД-Цифровой. Также: выступления на ж/д конференциях, партнёрские дни РЖД
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PITCH 4: МТС -->
+    <div class="pitch-card">
+      <div class="pitch-header">
+        <div class="pitch-logo mt">M</div>
+        <div class="pitch-header-text">
+          <h3>МТС</h3>
+          <div class="pitch-tagline">Телеком &middot; 80M+ абонентов &middot; Сворачивание МТС Travel &rarr; Bronevik.com</div>
+        </div>
+        <div class="pitch-badge-wrap"><span class="badge badge-high">Высокий</span></div>
+      </div>
+      <div class="pitch-body">
+        <div class="pitch-meta">
+          <div class="pitch-meta-item">
+            <div class="pm-label">Ключевое совпадение</div>
+            <div class="pm-value">МТС свернул инвестиции в travel — внешний поставщик экскурсий выгоднее</div>
+          </div>
+          <div class="pitch-meta-item">
+            <div class="pm-label">Формат интеграции</div>
+            <div class="pm-value">Лёгкая витрина + geo-push + кэшбэк МТС</div>
+          </div>
+          <div class="pitch-meta-item">
+            <div class="pm-label">Контекст</div>
+            <div class="pm-value">МТС Travel &rarr; Bronevik.com (B2B-фокус с 2025)</div>
+          </div>
+        </div>
+
+        <div class="pitch-subjects">
+          <h4>Варианты темы письма</h4>
+          <ol>
+            <li>Travel без инвестиций: как сохранить экскурсии для 80М абонентов МТС</li>
+            <li>МТС Premium + экскурсии: повышаем ценность подписки без разработки</li>
+            <li>Tele2 начисляет бонусы за travel. МТС может зарабатывать на экскурсиях</li>
+          </ol>
+        </div>
+
+        <div class="pitch-letter">
+          <p class="pl-greeting">Здравствуйте!</p>
+          <p>Знаю, что МТС принял стратегическое решение <span class="pl-highlight">оптимизировать инвестиции в travel-вертикаль</span> и переориентировать МТС Travel на B2B через Bronevik.com. Логичный шаг — фокус на core-бизнесе.</p>
+          <p>Но у МТС остаётся 80М+ абонентов, которые путешествуют. И travel-бенефиты (кэшбэк за отели, скидки) — важная часть ценности МТС Premium и программы лояльности. <span class="pl-highlight">Экскурсии можно добавить без собственных инвестиций</span> — через внешнего поставщика.</p>
+          <p><strong>Предложение:</strong> Спутник8 берёт на себя весь продукт: каталог, бронирование, поддержку, работу с гидами. МТС получает готовую витрину экскурсий для приложения или лендинга, плюс уникальную механику — <span class="pl-highlight">geo-push "Вы в Сочи! Топ-экскурсии для вас"</span> при перемещении абонента.</p>
+          <p><strong>Почему это работает для МТС сейчас:</strong></p>
+          <p>1) Ноль инвестиций в разработку — противоположность тому, от чего вы уходите<br>
+          2) Кэшбэк баллами МТС за экскурсии повышает ценность подписки<br>
+          3) Geo-push — уникальная механика, которую может сделать только телеком<br>
+          4) Комиссия 8–10% — чистый доход без операционных затрат</p>
+          <p>Предлагаю 15-минутный звонок — покажу, как выглядит витрина и обсудим пилот для МТС Premium.</p>
+          <p><strong>С уважением,<br>[Имя], BD, Спутник8</strong></p>
+        </div>
+
+        <div class="pitch-appendix">
+          <div class="pitch-appendix-block">
+            <h4>Юнит-экономика для МТС</h4>
+            <ul>
+              <li>80М абонентов, ~10% путешествуют активно = 8М</li>
+              <li>Конверсия geo-push: 0.3–0.5%</li>
+              <li>24К–40К бронирований/год</li>
+              <li>Средний чек: 2 500 руб.</li>
+              <li>Комиссия МТС (8%): 5–8М руб./год</li>
+              <li>Ноль CAPEX, ноль OPEX</li>
+            </ul>
+          </div>
+          <div class="pitch-appendix-block">
+            <h4>Формат пилота</h4>
+            <ul>
+              <li>Аудитория: МТС Premium (высокий ARPU)</li>
+              <li>Канал: push-уведомление при роуминге/перемещении + лендинг</li>
+              <li>Направления: Сочи, Петербург, Казань</li>
+              <li>Срок: 4 недели в летний сезон</li>
+              <li>Критерий: CTR push &gt;2%, конверсия &gt;0.5%</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pitch-tips">
+          <h4>Рекомендации для BD</h4>
+          <div class="pitch-tips-grid">
+            <div class="pitch-tip">
+              <strong>Тайминг</strong>
+              Сейчас — идеальный момент. МТС в процессе реструктуризации travel-вертикали (до середины 2025). Предложение "travel без инвестиций" попадает в их текущую стратегию
+            </div>
+            <div class="pitch-tip">
+              <strong>Ключевой аргумент</strong>
+              "Вы уходите от собственной разработки travel — мы предлагаем готовый продукт с нулевым CAPEX"
+            </div>
+            <div class="pitch-tip">
+              <strong>Вход</strong>
+              Директор по экосистеме МТС или руководитель программы лояльности. Также: MTS Travel Accelerator (startup.mts.ru/travel) как канал входа
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PITCH 5: Ostrovok -->
+    <div class="pitch-card">
+      <div class="pitch-header">
+        <div class="pitch-logo os">O</div>
+        <div class="pitch-header-text">
+          <h3>Островок (Ostrovok)</h3>
+          <div class="pitch-tagline">OTA / Отели &middot; Топ-15 мировых сайтов бронирования &middot; Возможная продажа до конца 2026</div>
+        </div>
+        <div class="pitch-badge-wrap"><span class="badge badge-high">Высокий</span></div>
+      </div>
+      <div class="pitch-body">
+        <div class="pitch-meta">
+          <div class="pitch-meta-item">
+            <div class="pm-label">Ключевое совпадение</div>
+            <div class="pm-value">Booking.com добавил "Things to Do" — Островок ещё нет</div>
+          </div>
+          <div class="pitch-meta-item">
+            <div class="pm-label">Формат интеграции</div>
+            <div class="pm-value">Виджет в confirmation-email + страница отеля</div>
+          </div>
+          <div class="pitch-meta-item">
+            <div class="pm-label">Контекст</div>
+            <div class="pm-value">Островок в топ-15 мировых, готовится к продаже — рост метрик критичен</div>
+          </div>
+        </div>
+
+        <div class="pitch-subjects">
+          <h4>Варианты темы письма</h4>
+          <ol>
+            <li>Booking.com зарабатывает на "Things to Do". Островку пора?</li>
+            <li>+200 руб. к каждому бронированию: экскурсии как cross-sell для Островка</li>
+            <li>28 000 экскурсий для гостей Островка — виджет за 1 неделю</li>
+          </ol>
+        </div>
+
+        <div class="pitch-letter">
+          <p class="pl-greeting">Здравствуйте!</p>
+          <p>Поздравляю с попаданием Островка в <span class="pl-highlight">топ-15 мировых сайтов категории "Hotel Business" по Similarweb</span>. Впечатляющий результат для российской платформы.</p>
+          <p>При этом глобальные конкуренты — Booking.com, Expedia — активно развивают раздел "Things to Do" (экскурсии и активности) как инструмент cross-sell. <span class="pl-highlight">Это +3–8% к ARPU на бронирование</span>. У Островка этого пока нет — а значит, есть возможность.</p>
+          <p><strong>Контекст:</strong> отельный бизнес использует три подхода к допродажам: upsell (лучший номер), cross-sell (экскурсии, трансферы), add-on (завтрак). Программа GURU уже работает на upsell. Cross-sell через экскурсии — следующий шаг.</p>
+          <p><strong>Предложение:</strong> Спутник8 подключает блок "Экскурсии рядом с вашим отелем" в confirmation-email Островка и/или на странице отеля. 28 000 экскурсий в 1 090 городах. Виджет подбирает экскурсии автоматически по геокоординатам отеля.</p>
+          <p><strong>Модель:</strong> Комиссия Островку — 8–10% от каждого бронирования экскурсии. Ноль затрат на каталог, модерацию, поддержку — всё на стороне Спутник8.</p>
+          <p>Готов показать, как выглядит виджет, и обсудить пилот на топ-10 городов России.</p>
+          <p><strong>С уважением,<br>[Имя], BD, Спутник8</strong></p>
+        </div>
+
+        <div class="pitch-appendix">
+          <div class="pitch-appendix-block">
+            <h4>Юнит-экономика для Островка</h4>
+            <ul>
+              <li>Конверсия cross-sell в email: 1.5–3%</li>
+              <li>Средний чек экскурсии: 2 500 руб.</li>
+              <li>Комиссия Островка (8%): ~200 руб./бронирование</li>
+              <li>При 50К confirmation-emails/мес: 750–1 500 доп. бронирований</li>
+              <li>+150К–300К руб./мес чистого дохода</li>
+              <li>Рост ARPU на бронирование: +3–5%</li>
+            </ul>
+          </div>
+          <div class="pitch-appendix-block">
+            <h4>Формат пилота</h4>
+            <ul>
+              <li>Канал: HTML-блок в confirmation-email</li>
+              <li>Контент: топ-5 экскурсий по геокоординатам отеля</li>
+              <li>Города: Москва, Петербург, Сочи, Казань, Калининград</li>
+              <li>Срок: 4 недели</li>
+              <li>Критерий: CTR блока &gt;4%, конверсия &gt;1%</li>
+              <li>Интеграция: вставка виджета в email-шаблон (1 день)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pitch-tips">
+          <h4>Рекомендации для BD</h4>
+          <div class="pitch-tips-grid">
+            <div class="pitch-tip">
+              <strong>Тайминг</strong>
+              Островок готовится к продаже до конца 2026. Рост ARPU и новые revenue streams повышают оценку — ваше предложение помогает им в этом
+            </div>
+            <div class="pitch-tip">
+              <strong>Ключевой аргумент</strong>
+              "Booking.com и Expedia уже делают Things to Do. Для Островка в топ-15 — это must-have, а не nice-to-have"
+            </div>
+            <div class="pitch-tip">
+              <strong>Вход</strong>
+              Product / Growth команда Островка. Также: Островок активно участвует в MITT и отраслевых мероприятиях (16 событий в 2026) — встреча на конференции
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </section>
 
   <!-- REVIEWS -->
