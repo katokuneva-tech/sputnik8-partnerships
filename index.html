@@ -416,6 +416,138 @@ body {
   border-bottom-color: #2762F4;
 }
 
+/* ===== REVIEWS SECTION ===== */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+.reviews-ratings { }
+.reviews-ratings h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.rating-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.rating-table th {
+  background: #f8f9fb;
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 700;
+  color: #666;
+  border-bottom: 1px solid #eee;
+}
+.rating-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #f5f5f5;
+}
+.rating-table tr:last-child td { border-bottom: none; }
+.rating-score {
+  font-weight: 700;
+  color: #231F20;
+}
+.rating-score.good { color: #52c41a; }
+.rating-score.mid { color: #d48806; }
+.rating-score.bad { color: #cf1322; }
+.rating-warn {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: #fff7e6;
+  border-left: 3px solid #d48806;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #666;
+}
+.rating-warn strong { color: #d48806; }
+
+.reviews-pros h3, .reviews-cons h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.pros-list, .cons-list { list-style: none; }
+.pros-list li, .cons-list li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #444;
+  line-height: 1.5;
+}
+.pros-list li::before {
+  content: '+';
+  position: absolute;
+  left: 0; top: 0;
+  font-weight: 700;
+  color: #52c41a;
+  font-size: 16px;
+}
+.cons-list li::before {
+  content: '!';
+  position: absolute;
+  left: 2px; top: 0;
+  font-weight: 700;
+  color: #cf1322;
+  font-size: 14px;
+}
+
+.complaint-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+.complaint-card .cc-title {
+  font-weight: 700;
+  font-size: 14px;
+  color: #231F20;
+  margin-bottom: 8px;
+}
+.complaint-card blockquote {
+  margin: 0;
+  padding: 10px 16px;
+  background: #fafbfd;
+  border-left: 3px solid #d9d9d9;
+  border-radius: 3px;
+  font-size: 13px;
+  color: #666;
+  font-style: italic;
+  line-height: 1.5;
+}
+.complaint-card .cc-source {
+  font-size: 12px;
+  color: #999;
+  margin-top: 6px;
+}
+
+.reviews-verdict {
+  background: #f8f9fb;
+  border-radius: 6px;
+  padding: 24px 28px;
+  margin-top: 32px;
+  border-left: 4px solid #2762F4;
+}
+.reviews-verdict h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.reviews-verdict p {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.6;
+}
+.reviews-verdict strong { color: #231F20; }
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .hero { padding: 48px 16px 40px; }
@@ -432,6 +564,7 @@ body {
   .fs-grid { grid-template-columns: 1fr; }
   .ref-item { flex-direction: column; }
   .final-summary { padding: 20px; }
+  .reviews-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -458,6 +591,7 @@ body {
       <a href="#verticals">Вертикали</a>
       <a href="#summary">Сводная таблица</a>
       <a href="#recs">Рекомендации</a>
+      <a href="#reviews">Отзывы</a>
     </nav>
   </div>
 </header>
@@ -1265,6 +1399,88 @@ body {
           <div class="fs-text">Яндекс (Путешествия + Go + Драйв + Плюс), Сбер (Путешествия + банк + страховка), МТС (Travel + телеком) — одна интеграция открывает доступ к нескольким каналам.</div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section" id="reviews">
+    <h2 class="section-title">Репутация Спутник8</h2>
+    <p class="section-subtitle">Сводка отзывов и рейтингов по площадкам, 2025–2026</p>
+
+    <div class="reviews-grid">
+      <div class="reviews-ratings">
+        <h3>Рейтинги по площадкам</h3>
+        <table class="rating-table">
+          <thead>
+            <tr><th>Платформа</th><th>Рейтинг</th><th>Отзывов</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>2ГИС</strong></td><td><span class="rating-score mid">3.4</span></td><td>160</td></tr>
+            <tr><td><strong>Otzovik</strong></td><td><span class="rating-score mid">3.8</span></td><td>715 (67% рекомендуют)</td></tr>
+            <tr><td><strong>iRecommend</strong></td><td><span class="rating-score good">4.0</span></td><td>607</td></tr>
+            <tr><td><strong>Otzyvru</strong></td><td><span class="rating-score good">4.3</span></td><td>31</td></tr>
+            <tr><td><strong>Т-Банк</strong></td><td><span class="rating-score">&mdash;</span></td><td>609</td></tr>
+            <tr><td><strong>Scam Detector</strong></td><td><span class="rating-score bad">46.4 / 100</span></td><td>&mdash;</td></tr>
+          </tbody>
+        </table>
+        <div class="rating-warn">
+          <strong>Важно:</strong> На Otzovik отмечено наличие заказных рекламных отзывов.
+        </div>
+      </div>
+
+      <div class="reviews-pros">
+        <h3>Что хвалят</h3>
+        <ul class="pros-list">
+          <li>Удобный интерфейс, быстрое бронирование</li>
+          <li>Широкий выбор экскурсий (18 000+)</li>
+          <li>Адекватные цены</li>
+          <li>Билеты сразу приходят на почту</li>
+          <li>Бесплатная отмена за 48–72 часа</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="font-size:18px; font-weight:700; margin-bottom:16px;">Основные жалобы (повторяющиеся паттерны)</h3>
+
+    <div class="complaint-card">
+      <div class="cc-title">1. Медленная поддержка</div>
+      <blockquote>&laquo;Ответили спустя 10 дней&raquo;</blockquote>
+      <div class="cc-source">&mdash; Вадим, октябрь 2025</div>
+    </div>
+
+    <div class="complaint-card">
+      <div class="cc-title">2. Гиды шантажируют доплатой / отменяют в последний момент</div>
+      <blockquote>Гид потребовал +3 000 &#8381;/чел за день до экскурсии, при отказе &mdash; отменил заказ &laquo;по просьбе клиента&raquo;</blockquote>
+      <div class="cc-source">&mdash; январь 2025</div>
+    </div>
+
+    <div class="complaint-card">
+      <div class="cc-title">3. Описание не соответствует реальности</div>
+      <blockquote>&laquo;Был заявлен аудиогид &mdash; его не было&raquo;</blockquote>
+      <div class="cc-source">&mdash; Ольга, октябрь 2025</div>
+    </div>
+
+    <div class="complaint-card">
+      <div class="cc-title">4. Проблемы с билетами в музеи / аттракционы</div>
+      <blockquote>&laquo;Заплатил за билеты за 2 недели, получил отказ через 4 дня&raquo;</blockquote>
+      <div class="cc-source">&mdash; февраль 2026, Дубай</div>
+    </div>
+
+    <div class="complaint-card">
+      <div class="cc-title">5. Отзывы на сайте фильтруются</div>
+      <blockquote>&laquo;Не доверяйте отзывам на официальном сайте Спутника&raquo;</blockquote>
+      <div class="cc-source">&mdash; сентябрь 2025</div>
+    </div>
+
+    <div class="complaint-card">
+      <div class="cc-title">6. Сложности с возвратами</div>
+      <blockquote>Менее 72 часов до экскурсии &mdash; возврат 0%, даже если отменяет платформа</blockquote>
+      <div class="cc-source">&mdash; повторяющийся паттерн</div>
+    </div>
+
+    <div class="reviews-verdict">
+      <h3>Общая картина</h3>
+      <p>Сервис <strong>работает</strong> и большинство клиентов довольны базовым опытом. Но есть системная проблема: <strong>Sputnik8 как агрегатор слабо контролирует качество гидов</strong>, и когда что-то идёт не так &mdash; поддержка реагирует медленно. Это важный контекст для партнёрских переговоров: партнёры будут оценивать репутационные риски интеграции со Спутник8.</p>
     </div>
   </section>
 
